@@ -1,0 +1,25 @@
+@import url(./assets/fonts/montserrat/main.css);
+
+:root {
+  --pf-global--primary-color--100: #92C255;
+  --pf-global--primary-color--200: #78a43e;
+  --pf-global--primary-color--dark-100: #195335;
+  --pf-global--secondary-color--100: #5F5E5E;
+  --pf-global--primary-color--light-100: #b0d680;
+  --pf-global--BackgroundColor--light-100: #fff;
+  --pf-global--BackgroundColor--light-200: #faf7f6;
+  --pf-global--BackgroundColor--light-300: #F8F5F4;
+}
+
+body.kcBodyClass {
+  background: var(--pf-global--BackgroundColor--light-300);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+#kc-page-title {
+  font-weight: 700;
+}
+
+#kc-info-wrapper {
+  background-color: var(--pf-global--BackgroundColor--light-200);
+}

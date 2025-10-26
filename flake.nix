@@ -38,8 +38,10 @@
             packages = with pkgs; [
               node2nix
               nodejs
-              nodePackages.pnpm
+              yarn-berry
+              # Java dependencies for running keycloak server
               jdk21
+              maven
             ];
           };
         }
