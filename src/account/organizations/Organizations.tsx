@@ -17,12 +17,13 @@ import {
     OrganizationTable,
     useEnvironment
 } from "../../shared/keycloak-ui-shared";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getUserOrganizations } from "../api/methods";
 import { Page } from "../components/page/Page";
 import { Environment } from "../environment";
 import { usePromise } from "../utils/usePromise";
+import { Link } from "react-router-dom";
 
 export const Organizations = () => {
     const { t } = useTranslation();
@@ -40,7 +41,13 @@ export const Organizations = () => {
         <Page title={t("organizations")} description={t("organizationDescription")}>
             <ErrorBoundaryProvider>
                 <OrganizationTable
-                    link={({ children }) => <span>{children}</span>}
+                    link={({ organization, children }) => (
+                        <Link
+                            key={organization.id}
+                            to={organization.id} >
+                            {children}
+                        </Link>
+                    )}
                     loader={userOrgs}
                 >
                     <ListEmptyState
