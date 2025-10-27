@@ -1,7 +1,7 @@
 {
   description = "A Nix-flake-based Node.js development environment";
 
-  inputs.nixpkgs.url = "nixpkgs/nixos-unstable"; # unstable Nixpkgs
+  inputs.nixpkgs.url = "nixpkgs/nixos-25.05"; # unstable Nixpkgs
 
   outputs =
     { self, ... }@inputs:
@@ -40,7 +40,6 @@
               nodejs
               yarn-berry
               # Java dependencies for running keycloak server
-              jdk21
               maven
             ];
           };
