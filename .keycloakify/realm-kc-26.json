@@ -2467,11 +2467,11 @@
         "oauth2DeviceCodeLifespan": "600",
         "parRequestUriLifespan": "60",
         "clientSessionMaxLifespan": "0",
-        "organizationsEnabled": "false"
+        "organizationsEnabled": "true"
     },
     "keycloakVersion": "26.0.7",
     "userManagedAccessAllowed": false,
-    "organizationsEnabled": false,
+    "organizationsEnabled": true,
     "clientProfiles": {
         "profiles": []
     },
