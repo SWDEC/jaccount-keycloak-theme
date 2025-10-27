@@ -3,6 +3,7 @@
 # === Owned files start ===
 # account/assets/favicon.svg
 # account/assets/logo.svg
+# account/organizations/Organizations.tsx
 # === Owned files end =====
 
 # === @keycloakify/keycloak-ui-shared v260305.0.0 ===
@@ -136,7 +137,6 @@
 /account/i18n/messages_zh_CN.properties
 /account/i18n/messages_zh_TW.properties
 /account/oid4vci/Oid4Vci.tsx
-/account/organizations/Organizations.tsx
 /account/personal-info/PersonalInfo.tsx
 /account/resources/EditTheResource.tsx
 /account/resources/PermissionRequest.tsx
