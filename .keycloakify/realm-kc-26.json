@@ -831,7 +831,7 @@
             "webOrigins": ["*"],
             "notBefore": 0,
             "bearerOnly": false,
-            "consentRequired": false,
+            "consentRequired": true,
             "standardFlowEnabled": true,
             "implicitFlowEnabled": false,
             "directAccessGrantsEnabled": true,
@@ -845,13 +845,35 @@
                 "backchannel.logout.session.required": "true",
                 "post.logout.redirect.uris": "+",
                 "oauth2.device.authorization.grant.enabled": "false",
-                "display.on.consent.screen": "false",
-                "backchannel.logout.revoke.offline.tokens": "false"
+                "display.on.consent.screen": "true",
+                "backchannel.logout.revoke.offline.tokens": "false",
+                "dpop.bound.access.tokens": "false",
+                "frontchannel.logout.session.required": "true",
+                "standard.token.exchange.enabled": "false"
             },
             "authenticationFlowBindingOverrides": {},
             "fullScopeAllowed": true,
             "nodeReRegistrationTimeout": -1,
             "protocolMappers": [
+                {
+                    "id": "e31180c2-0c19-4fd4-8da7-915902a1f13d",
+                    "name": "organizations",
+                    "protocol": "openid-connect",
+                    "protocolMapper": "oidc-organization-membership-mapper",
+                    "consentRequired": false,
+                    "config": {
+                        "introspection.token.claim": "true",
+                        "userinfo.token.claim": "true",
+                        "id.token.claim": "true",
+                        "lightweight.claim": "true",
+                        "access.token.claim": "true",
+                        "claim.name": "organizations",
+                        "jsonType.label": "JSON",
+                        "addOrganizationAttributes": "true",
+                        "addOrganizationId": "true",
+                        "multivalued": "true"
+                    }
+                },
                 {
                     "id": "91a196c1-f93c-48a5-aced-b8d60fb09b62",
                     "name": "Favourite Pet",
@@ -1467,6 +1489,25 @@
                         "access.token.claim": "true",
                         "claim.name": "picture",
                         "jsonType.label": "String"
+                    }
+                },
+                {
+                    "id": "fe040e27-027d-4417-8f79-b5d1e9a22a15",
+                    "name": "Organizations",
+                    "protocol": "openid-connect",
+                    "protocolMapper": "oidc-organization-membership-mapper",
+                    "consentRequired": false,
+                    "config": {
+                        "introspection.token.claim": "true",
+                        "userinfo.token.claim": "true",
+                        "id.token.claim": "true",
+                        "access.token.claim": "true",
+                        "claim.name": "organizations",
+                        "jsonType.label": "JSON",
+                        "addOrganizationAttributes": "true",
+                        "addOrganizationId": "true",
+                        "lightweight.claim": "true",
+                        "multivalued": "true"
                     }
                 },
                 {
@@ -2532,7 +2573,10 @@
         "cibaExpiresIn": "120",
         "oauth2DeviceCodeLifespan": "600",
         "parRequestUriLifespan": "60",
-        "clientSessionMaxLifespan": "0"
+        "clientSessionMaxLifespan": "0",
+        "acr.loa.map": "{}",
+        "frontendUrl": "",
+        "saml.signature.algorithm": ""
     },
     "keycloakVersion": "26.4.2",
     "userManagedAccessAllowed": false,
@@ -2544,6 +2588,8 @@
         "policies": []
     },
     "adminPermissionsEnabled": false,
+    "displayName": "",
+    "displayNameHtml": "",
     "verifiableCredentialsEnabled": false,
     "organizations": [
         {
@@ -2568,7 +2614,9 @@
             "enabled": true,
             "id": "6c72e57b-577c-4e35-bb88-6a18ec322ba3",
             "name": "SWD-EC",
-            "attributes": {},
+            "attributes": {
+                "manager": ["admin"]
+            },
             "members": [
                 {
                     "membershipType": "UNMANAGED",
