@@ -27,10 +27,10 @@
     "oauth2DevicePollingInterval": 5,
     "enabled": true,
     "sslRequired": "none",
-    "registrationAllowed": true,
+    "registrationAllowed": false,
     "registrationEmailAsUsername": false,
     "rememberMe": true,
-    "verifyEmail": false,
+    "verifyEmail": true,
     "loginWithEmailAllowed": true,
     "duplicateEmailsAllowed": false,
     "resetPasswordAllowed": true,
@@ -415,14 +415,17 @@
     "localizationTexts": {
         "de": {
             "profile.attributes.favourite_pet": "Lieblingstier",
-            "organizations": "Jugendarbeiten & KVs",
             "inviteMember": "Jemanden einladen",
-            "send": "Senden",
-            "remove": "Entfernen",
+            "inviteMemberDescription": "Lade eine Person zu dieser Jugendarbeit ein. Wenn die Person schon ein Konto hat, kann sie dieses verwenden, um beizutreten. Andernfalls wird sie in einer E-Mail aufgefordert, ein Konto zu erstellen.",
+            "inviteMemberOptionalData": "Folgende Daten sind optional und können auch von der Person selbst ausgefüllt werden",
             "organizationDescription": "Jugendarbeiten oder Kreisverbände, zu denen du gehörst",
             "organizationUsersLeft": "Person erfolgreich aus der Organisation entfernt",
-            "inviteMemberDescription": "Lade eine Person zu dieser Jugendarbeit ein. Wenn die Person schon ein Konto hat, kann sie dieses verwenden, um beizutreten. Andernfalls wird sie in einer E-Mail aufgefordert, ein Konto zu erstellen.",
-            "inviteMemberOptionalData": "Folgende Daten sind optional und können auch von der Person selbst ausgefüllt werden"
+            "organizations": "Jugendarbeiten & KVs",
+            "remove": "Entfernen",
+            "removeMember": "Mitglied entfernen",
+            "removeMemberDescription": "Wenn du diese Person aus der Jugendarbeit entfernst, kann sie nicht mehr auf gemeinsame Ressourcen zugreifen.",
+            "roles": "Rollen",
+            "send": "Senden"
         },
         "no": {
             "profile.attributes.favourite_pet": ""
@@ -476,7 +479,8 @@
             "profile.attributes.favourite_pet": "Favourite Pet",
             "profile.attributes.favourite_pet.cat": "Cat",
             "profile.attributes.favourite_pet.dog": "Dog",
-            "profile.attributes.favourite_pet.bird": "Bird"
+            "profile.attributes.favourite_pet.bird": "Bird",
+            "organizations": "Jugendarbeiten & KVs"
         },
         "it": {
             "profile.attributes.favourite_pet": ""
@@ -1744,7 +1748,33 @@
     "enabledEventTypes": [],
     "adminEventsEnabled": false,
     "adminEventsDetailsEnabled": false,
-    "identityProviders": [],
+    "identityProviders": [
+        {
+            "addReadTokenRoleOnCreate": false,
+            "alias": "microsoft",
+            "authenticateByDefault": false,
+            "displayName": "Microsoft-Konto (SWD-EC Hauptamtliche)",
+            "enabled": true,
+            "hideOnLogin": false,
+            "internalId": "9afcb4e1-dc39-4854-8ec8-8a0126fe41e5",
+            "linkOnly": false,
+            "providerId": "microsoft",
+            "storeToken": false,
+            "trustEmail": true,
+            "updateProfileFirstLoginMode": "on",
+            "config": {
+                "acceptsPromptNoneForwardFromClient": "false",
+                "caseSensitiveOriginalUsername": "false",
+                "clientId": "adfasdf",
+                "clientSecret": "asdfasdf",
+                "disableUserInfo": "false",
+                "filteredByClaim": "false",
+                "kc.org.broker.redirect.mode.email-matches": "false",
+                "showInAccountConsole": "WHEN_LINKED",
+                "syncMode": "LEGACY"
+            }
+        }
+    ],
     "identityProviderMappers": [],
     "components": {
         "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy": [
@@ -2628,6 +2658,20 @@
             "attributes": {
                 "manager": ["admin"]
             },
+            "identityProviders": [
+                {
+                    "addReadTokenRoleOnCreate": false,
+                    "alias": "microsoft",
+                    "authenticateByDefault": false,
+                    "enabled": true,
+                    "hideOnLogin": false,
+                    "linkOnly": false,
+                    "storeToken": false,
+                    "trustEmail": false,
+                    "updateProfileFirstLoginMode": "on",
+                    "config": {}
+                }
+            ],
             "members": [
                 {
                     "membershipType": "UNMANAGED",
