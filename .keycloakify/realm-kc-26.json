@@ -414,7 +414,15 @@
     ],
     "localizationTexts": {
         "de": {
-            "profile.attributes.favourite_pet": ""
+            "profile.attributes.favourite_pet": "Lieblingstier",
+            "organizations": "Jugendarbeiten & KVs",
+            "inviteMember": "Jemanden einladen",
+            "send": "Senden",
+            "remove": "Entfernen",
+            "organizationDescription": "Jugendarbeiten oder Kreisverbände, zu denen du gehörst",
+            "organizationUsersLeft": "Person erfolgreich aus der Organisation entfernt",
+            "inviteMemberDescription": "Lade eine Person zu dieser Jugendarbeit ein. Wenn die Person schon ein Konto hat, kann sie dieses verwenden, um beizutreten. Andernfalls wird sie in einer E-Mail aufgefordert, ein Konto zu erstellen.",
+            "inviteMemberOptionalData": "Folgende Daten sind optional und können auch von der Person selbst ausgefüllt werden"
         },
         "no": {
             "profile.attributes.favourite_pet": ""
@@ -1118,6 +1126,7 @@
                     "consentRequired": false,
                     "config": {
                         "introspection.token.claim": "true",
+                        "userinfo.token.claim": "true",
                         "id.token.claim": "true",
                         "access.token.claim": "true",
                         "claim.name": "clientHost",
@@ -1133,6 +1142,7 @@
                     "consentRequired": false,
                     "config": {
                         "introspection.token.claim": "true",
+                        "userinfo.token.claim": "true",
                         "id.token.claim": "true",
                         "access.token.claim": "true",
                         "claim.name": "clientAddress",
@@ -1148,6 +1158,7 @@
                     "consentRequired": false,
                     "config": {
                         "introspection.token.claim": "true",
+                        "userinfo.token.claim": "true",
                         "id.token.claim": "true",
                         "access.token.claim": "true",
                         "claim.name": "client_id",
@@ -1755,14 +1766,14 @@
                 "subComponents": {},
                 "config": {
                     "allowed-protocol-mapper-types": [
-                        "saml-user-property-mapper",
-                        "saml-role-list-mapper",
                         "oidc-full-name-mapper",
-                        "oidc-address-mapper",
+                        "saml-role-list-mapper",
                         "oidc-usermodel-attribute-mapper",
-                        "saml-user-attribute-mapper",
                         "oidc-sha256-pairwise-sub-mapper",
-                        "oidc-usermodel-property-mapper"
+                        "oidc-address-mapper",
+                        "saml-user-property-mapper",
+                        "oidc-usermodel-property-mapper",
+                        "saml-user-attribute-mapper"
                     ]
                 }
             },
@@ -1792,14 +1803,14 @@
                 "subComponents": {},
                 "config": {
                     "allowed-protocol-mapper-types": [
-                        "oidc-usermodel-attribute-mapper",
-                        "saml-role-list-mapper",
-                        "oidc-usermodel-property-mapper",
-                        "oidc-sha256-pairwise-sub-mapper",
-                        "saml-user-property-mapper",
                         "saml-user-attribute-mapper",
+                        "oidc-sha256-pairwise-sub-mapper",
+                        "saml-role-list-mapper",
                         "oidc-full-name-mapper",
-                        "oidc-address-mapper"
+                        "saml-user-property-mapper",
+                        "oidc-usermodel-attribute-mapper",
+                        "oidc-address-mapper",
+                        "oidc-usermodel-property-mapper"
                     ]
                 }
             },
@@ -2578,7 +2589,7 @@
         "frontendUrl": "",
         "saml.signature.algorithm": ""
     },
-    "keycloakVersion": "26.4.2",
+    "keycloakVersion": "26.4.5",
     "userManagedAccessAllowed": false,
     "organizationsEnabled": true,
     "clientProfiles": {
