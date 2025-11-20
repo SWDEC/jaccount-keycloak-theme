@@ -11,7 +11,7 @@
   --pf-global--BackgroundColor--light-300: #F8F5F4;
 }
 
-body.kcBodyClass {
+body.kcBodyClass, .login-pf body {
   background: var(--pf-global--BackgroundColor--light-300);
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
