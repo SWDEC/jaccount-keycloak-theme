@@ -39,8 +39,6 @@
               node2nix
               nodejs
               yarn-berry
-              # Java dependencies for running keycloak server
-              maven
             ];
           };
         }
