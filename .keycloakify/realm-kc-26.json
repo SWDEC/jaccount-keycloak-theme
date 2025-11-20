@@ -34,8 +34,8 @@
     "loginWithEmailAllowed": true,
     "duplicateEmailsAllowed": false,
     "resetPasswordAllowed": true,
-    "editUsernameAllowed": false,
-    "bruteForceProtected": false,
+    "editUsernameAllowed": true,
+    "bruteForceProtected": true,
     "permanentLockout": false,
     "maxTemporaryLockouts": 0,
     "bruteForceStrategy": "MULTIPLE",
@@ -44,7 +44,7 @@
     "waitIncrementSeconds": 60,
     "quickLoginCheckMilliSeconds": 1000,
     "maxDeltaTimeSeconds": 43200,
-    "failureFactor": 30,
+    "failureFactor": 7,
     "roles": {
         "realm": [
             {
@@ -414,110 +414,49 @@
     ],
     "localizationTexts": {
         "de": {
-            "profile.attributes.favourite_pet": "Lieblingstier",
             "inviteMember": "Jemanden einladen",
             "inviteMemberDescription": "Lade eine Person zu dieser Jugendarbeit ein. Wenn die Person schon ein Konto hat, kann sie dieses verwenden, um beizutreten. Andernfalls wird sie in einer E-Mail aufgefordert, ein Konto zu erstellen.",
             "inviteMemberOptionalData": "Folgende Daten sind optional und können auch von der Person selbst ausgefüllt werden",
             "organizationDescription": "Jugendarbeiten oder Kreisverbände, zu denen du gehörst",
             "organizationUsersLeft": "Person erfolgreich aus der Organisation entfernt",
             "organizations": "Jugendarbeiten & KVs",
+            "profile.attributes.membershipNumber": "Mitgliedsnummer",
             "remove": "Entfernen",
             "removeMember": "Mitglied entfernen",
             "removeMemberDescription": "Wenn du diese Person aus der Jugendarbeit entfernst, kann sie nicht mehr auf gemeinsame Ressourcen zugreifen.",
             "roles": "Rollen",
             "send": "Senden"
         },
-        "no": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "fi": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "ru": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "pt": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "lt": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "lv": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "fr": {
-            "profile.attributes.favourite_pet": "Animal de compagnie préféré",
-            "profile.attributes.favourite_pet.cat": "Chat",
-            "profile.attributes.favourite_pet.dog": "Chien",
-            "profile.attributes.favourite_pet.bird": "Oiseau"
-        },
-        "hu": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "zh-CN": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "uk": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "sk": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "ca": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "sv": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "zh-TW": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "pt-BR": {
-            "profile.attributes.favourite_pet": ""
-        },
+        "no": {},
+        "fi": {},
+        "ru": {},
+        "pt": {},
+        "lt": {},
+        "lv": {},
+        "fr": {},
+        "hu": {},
+        "zh-CN": {},
+        "uk": {},
+        "sk": {},
+        "ca": {},
+        "sv": {},
+        "zh-TW": {},
+        "pt-BR": {},
         "en": {
-            "profile.attributes.favourite_pet": "Favourite Pet",
-            "profile.attributes.favourite_pet.cat": "Cat",
-            "profile.attributes.favourite_pet.dog": "Dog",
-            "profile.attributes.favourite_pet.bird": "Bird",
-            "organizations": "Jugendarbeiten & KVs"
+            "organizations": "Jugendarbeiten & KVs",
+            "profile.attributes.membershipNumber": "Membership Number"
         },
-        "it": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "es": {
-            "profile.attributes.favourite_pet": "Mascota favorita",
-            "profile.attributes.favourite_pet.cat": "Gato",
-            "profile.attributes.favourite_pet.dog": "Perro",
-            "profile.attributes.favourite_pet.bird": "Pájaro"
-        },
-        "cs": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "ar": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "th": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "ja": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "fa": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "pl": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "da": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "nl": {
-            "profile.attributes.favourite_pet": ""
-        },
-        "tr": {
-            "profile.attributes.favourite_pet": ""
-        }
+        "it": {},
+        "es": {},
+        "cs": {},
+        "ar": {},
+        "th": {},
+        "ja": {},
+        "fa": {},
+        "pl": {},
+        "da": {},
+        "nl": {},
+        "tr": {}
     },
     "webAuthnPolicyRpEntityName": "keycloak",
     "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -1798,12 +1737,12 @@
                     "allowed-protocol-mapper-types": [
                         "oidc-full-name-mapper",
                         "saml-role-list-mapper",
-                        "oidc-usermodel-attribute-mapper",
-                        "oidc-sha256-pairwise-sub-mapper",
-                        "oidc-address-mapper",
                         "saml-user-property-mapper",
-                        "oidc-usermodel-property-mapper",
-                        "saml-user-attribute-mapper"
+                        "oidc-address-mapper",
+                        "oidc-usermodel-attribute-mapper",
+                        "saml-user-attribute-mapper",
+                        "oidc-sha256-pairwise-sub-mapper",
+                        "oidc-usermodel-property-mapper"
                     ]
                 }
             },
@@ -1833,13 +1772,13 @@
                 "subComponents": {},
                 "config": {
                     "allowed-protocol-mapper-types": [
-                        "saml-user-attribute-mapper",
-                        "oidc-sha256-pairwise-sub-mapper",
                         "saml-role-list-mapper",
-                        "oidc-full-name-mapper",
+                        "oidc-address-mapper",
                         "saml-user-property-mapper",
                         "oidc-usermodel-attribute-mapper",
-                        "oidc-address-mapper",
+                        "saml-user-attribute-mapper",
+                        "oidc-full-name-mapper",
+                        "oidc-sha256-pairwise-sub-mapper",
                         "oidc-usermodel-property-mapper"
                     ]
                 }
@@ -1881,7 +1820,7 @@
                 "subComponents": {},
                 "config": {
                     "kc.user.profile.config": [
-                        "{\"attributes\":[{\"name\":\"username\",\"displayName\":\"${username}\",\"validations\":{\"length\":{\"min\":3,\"max\":255},\"username-prohibited-characters\":{},\"up-username-not-idn-homograph\":{}},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"email\",\"displayName\":\"${email}\",\"validations\":{\"email\":{},\"length\":{\"max\":255}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"firstName\",\"displayName\":\"${firstName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"lastName\",\"displayName\":\"${lastName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"favourite_pet\",\"displayName\":\"${profile.attributes.favourite_pet}\",\"validations\":{\"options\":{\"options\":[\"cat\",\"dog\",\"bird\"]}},\"annotations\":{\"inputType\":\"select\",\"inputOptionLabelsI18nPrefix\":\"profile.attributes.favourite_pet\"},\"required\":{\"roles\":[\"admin\",\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false}],\"groups\":[{\"name\":\"user-metadata\",\"displayHeader\":\"User metadata\",\"displayDescription\":\"Attributes, which refer to user metadata\"}]}"
+                        "{\"attributes\":[{\"name\":\"username\",\"displayName\":\"${username}\",\"validations\":{\"length\":{\"min\":3,\"max\":255},\"username-prohibited-characters\":{},\"up-username-not-idn-homograph\":{}},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"email\",\"displayName\":\"${email}\",\"validations\":{\"email\":{},\"length\":{\"max\":255}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"firstName\",\"displayName\":\"${firstName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"lastName\",\"displayName\":\"${lastName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"membershipNumber\",\"displayName\":\"${profile.attributes.membershipNumber}\",\"validations\":{\"integer\":{\"min\":\"0\",\"max\":\"4294967295\"}},\"annotations\":{},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\"]},\"multivalued\":false}],\"groups\":[{\"name\":\"user-metadata\",\"displayHeader\":\"User metadata\",\"displayDescription\":\"Attributes, which refer to user metadata\"}]}"
                     ]
                 }
             }
@@ -2648,6 +2587,16 @@
                     "username": "testuser"
                 }
             ]
+        },
+        {
+            "alias": "kv-stuttgart",
+            "description": "",
+            "enabled": true,
+            "id": "7002dd61-b083-4f64-af3e-5cb194000b52",
+            "name": "KV Stuttgart",
+            "attributes": {
+                "manager": ["admin"]
+            }
         },
         {
             "alias": "swdec",
