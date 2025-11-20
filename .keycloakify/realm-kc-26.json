@@ -1,6 +1,6 @@
 {
     "id": "5d0dd960-0478-4ca6-b64a-810a3f6f4071",
-    "realm": "myrealm",
+    "realm": "swdec",
     "notBefore": 0,
     "defaultSignatureAlgorithm": "RS256",
     "revokeRefreshToken": false,
@@ -58,7 +58,7 @@
             },
             {
                 "id": "e92017b2-18a0-49cd-956c-fad64f16b26b",
-                "name": "default-roles-myrealm",
+                "name": "default-roles-swdec",
                 "description": "${role_default-roles}",
                 "composite": true,
                 "composites": {
@@ -393,7 +393,7 @@
     "groups": [],
     "defaultRole": {
         "id": "e92017b2-18a0-49cd-956c-fad64f16b26b",
-        "name": "default-roles-myrealm",
+        "name": "default-roles-swdec",
         "description": "${role_default-roles}",
         "composite": true,
         "clientRole": false,
@@ -574,7 +574,7 @@
             ],
             "disableableCredentialTypes": [],
             "requiredActions": [],
-            "realmRoles": ["default-roles-myrealm"],
+            "realmRoles": ["default-roles-swdec"],
             "clientRoles": {
                 "realm-management": [
                     "manage-users",
@@ -633,12 +633,12 @@
             "clientId": "account",
             "name": "${client_account}",
             "rootUrl": "${authBaseUrl}",
-            "baseUrl": "/realms/myrealm/account/",
+            "baseUrl": "/realms/swdec/account/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
             "clientAuthenticatorType": "client-secret",
-            "redirectUris": ["/realms/myrealm/account/*"],
+            "redirectUris": ["/realms/swdec/account/*"],
             "webOrigins": [],
             "notBefore": 0,
             "bearerOnly": false,
@@ -679,7 +679,7 @@
             "description": "",
             "rootUrl": "${authBaseUrl}",
             "adminUrl": "",
-            "baseUrl": "/realms/myrealm/account/",
+            "baseUrl": "/realms/swdec/account/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
@@ -687,7 +687,7 @@
             "redirectUris": [
                 "http://localhost*",
                 "http://127.0.0.1*",
-                "/realms/myrealm/account/*"
+                "/realms/swdec/account/*"
             ],
             "webOrigins": ["*"],
             "notBefore": 0,
@@ -968,7 +968,7 @@
             "description": "",
             "rootUrl": "${authAdminUrl}",
             "adminUrl": "",
-            "baseUrl": "/admin/myrealm/console/",
+            "baseUrl": "/admin/swdec/console/",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
@@ -976,7 +976,7 @@
             "redirectUris": [
                 "http://localhost*",
                 "http://127.0.0.1*",
-                "/admin/myrealm/console/*"
+                "/admin/swdec/console/*"
             ],
             "webOrigins": ["*"],
             "notBefore": 0,
