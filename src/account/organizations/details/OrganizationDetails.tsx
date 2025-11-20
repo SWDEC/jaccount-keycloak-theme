@@ -19,11 +19,12 @@ import { useState } from "react";
 import OrganizationRepresentation from "@keycloak/keycloak-admin-client/lib/defs/organizationRepresentation";
 import { usePromise } from "../../utils/usePromise";
 import { getUserOrganizations } from "../../api/methods";
-import { Environment } from "../../environment";
 import { InviteMemberModal } from "./InviteMemberModal";
 import { UserRepresentation } from "../../api/representations";
 import { Link } from "react-router-dom";
 import { RemoveMemberModal } from "./RemoveMemberModal";
+import { removeOrganizationMembers } from "../../api/orgs-sidecar-methods";
+import { OrgSidecarEnvironment } from "../../org-sidecar-environment";
 
 interface OrganizationDetailsProps {
     orgId: string;
@@ -35,7 +36,7 @@ export const OrganizationDetails = ({
     onGoToOverview
 }: OrganizationDetailsProps) => {
     const { t } = useTranslation();
-    const context = useEnvironment<Environment>();
+    const context = useEnvironment<OrgSidecarEnvironment>();
     const { addError, addAlert } = useAlerts();
 
     const [key, setKey] = useState(0);
@@ -90,22 +91,29 @@ export const OrganizationDetails = ({
         try {
             clearMembersToRemove();
 
-            await Promise.all(
-                selectedMembers.map(user => {
-                    alert("TODO: Remove user");
-                    // TODO
-                    /*adminClient.organizations.delMember({
-                        orgId,
-                        userId: user.id!
-                    })*/
-                })
-            );
+            alert("TODO: Remove user");
+            const users = selectedMembers.map(user => user.id);
+            removeOrganizationMembers(context, users, orgId);
+
             addAlert(t("organizationUsersLeft", { count: selectedMembers.length }));
         } catch (error) {
             addError("organizationUsersLeftError", error);
         }
 
         refresh();
+    };
+
+    const sendPasswordResetMail = async (users: UserRepresentation[]) => {
+        try {
+            await Promise.all(
+                users.map(user => {
+                    alert("TODO: Actually send password reset");
+                })
+            );
+            addAlert(t("passwordResetSent"));
+        } catch (error) {
+            addError("passwordResetError", error);
+        }
     };
 
     if (error) {
@@ -158,13 +166,13 @@ export const OrganizationDetails = ({
                                 name: "lastName"
                             },
                             {
+                                name: "2fa"
+                            },
+                            {
                                 name: "roles"
                             },
                             {
                                 name: "email"
-                            },
-                            {
-                                name: "username"
                             }
                         ]}
                         actions={[
@@ -175,7 +183,7 @@ export const OrganizationDetails = ({
                                 }
                             },
                             {
-                                title: t("remove"),
+                                title: t("passwordReset"),
                                 onRowClick: member => {
                                     sendPasswordResetMail([member]);
                                 }
