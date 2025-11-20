@@ -37,11 +37,6 @@ export const content: MenuItem[] = [
         isVisible: "isViewOrganizationsEnabled"
     },
     {
-        label: "organizationDetails",
-        path: "organizations/:id",
-        isVisible: "isViewOrganizationsEnabled"
-    },
-    {
         label: "resources",
         path: "resources",
         isVisible: "isMyResourcesEnabled"

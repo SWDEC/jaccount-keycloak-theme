@@ -13,7 +13,6 @@ import { lazy } from "react";
 import type { IndexRouteObject, RouteObject } from "react-router-dom";
 import { environment } from "./environment";
 import { Organizations } from "./organizations/Organizations";
-import { OrganizationDetails } from "./organizations/details/OrganizationDetails";
 
 const DeviceActivity = lazy(() => import("./account-security/DeviceActivity"));
 const LinkedAccounts = lazy(() => import("./account-security/LinkedAccounts"));
@@ -75,11 +74,6 @@ export const OrganizationsRoute: RouteObject = {
     element: <Organizations />
 };
 
-export const OrganizationDetailsRoute: RouteObject = {
-    path: "organizations/:id",
-    element: <OrganizationDetails />
-};
-
 export const Oid4VciRoute: RouteObject = {
     path: "oid4vci",
     element: <Oid4Vci />
@@ -93,7 +87,6 @@ export const routes: RouteObject[] = [
     ApplicationsRoute,
     GroupsRoute,
     OrganizationsRoute,
-    OrganizationDetailsRoute,
     PersonalInfoRoute,
     ResourcesRoute,
     ContentRoute,

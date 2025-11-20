@@ -24,40 +24,23 @@ import { Page } from "../components/page/Page";
 import { Environment } from "../environment";
 import { usePromise } from "../utils/usePromise";
 import { Link } from "react-router-dom";
+import { OrganizationDetails } from "./details/OrganizationDetails";
+import { OrganizationOverview } from "./overview/OrganizationOverview";
 
 export const Organizations = () => {
-    const { t } = useTranslation();
-    const context = useEnvironment<Environment>();
+    const [selectedOrgId, setSelectedOrgId] = useState<string | undefined>(undefined);
 
-    const [userOrgs, setUserOrgs] = useState<OrganizationRepresentation[]>([]);
+    const onGoToOverview = () => {
+        setSelectedOrgId(undefined);
+    };
 
-    usePromise(signal => getUserOrganizations({ signal, context }), setUserOrgs);
-
-    if (!userOrgs) {
-        return <KeycloakSpinner />;
+    if (selectedOrgId) {
+        return (
+            <OrganizationDetails orgId={selectedOrgId} onGoToOverview={onGoToOverview} />
+        );
+    } else {
+        return <OrganizationOverview onSelectOrg={setSelectedOrgId} />;
     }
-
-    return (
-        <Page title={t("organizations")} description={t("organizationDescription")}>
-            <ErrorBoundaryProvider>
-                <OrganizationTable
-                    link={({ organization, children }) => (
-                        <Link
-                            key={organization.id}
-                            to={organization.id} >
-                            {children}
-                        </Link>
-                    )}
-                    loader={userOrgs}
-                >
-                    <ListEmptyState
-                        message={t("emptyUserOrganizations")}
-                        instructions={t("emptyUserOrganizationsInstructions")}
-                    />
-                </OrganizationTable>
-            </ErrorBoundaryProvider>
-        </Page>
-    );
 };
 
 export default Organizations;
