@@ -7,7 +7,11 @@ export default defineConfig({
     plugins: [
         react(),
         keycloakify({
-            accountThemeImplementation: "Single-Page"
+            accountThemeImplementation: "Single-Page",
+            environmentVariables: [
+                { name: "ORGS_SIDECAR_SERVER_URL", default: "http://localhost:3000"}
+            ],
+            groupId: "de.swdec.jaccount"
         })
     ]
 });

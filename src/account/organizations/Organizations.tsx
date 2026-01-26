@@ -23,21 +23,25 @@ import { getUserOrganizations } from "../api/methods";
 import { Page } from "../components/page/Page";
 import { Environment } from "../environment";
 import { usePromise } from "../utils/usePromise";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { OrganizationDetails } from "./details/OrganizationDetails";
 import { OrganizationOverview } from "./overview/OrganizationOverview";
 
 export const Organizations = () => {
-    const [selectedOrgId, setSelectedOrgId] = useState<string | undefined>(undefined);
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const onGoToOverview = () => {
-        setSelectedOrgId(undefined);
+        setSearchParams(undefined);
     };
 
-    if (selectedOrgId) {
-        return (
-            <OrganizationDetails orgId={selectedOrgId} onGoToOverview={onGoToOverview} />
-        );
+    const setSelectedOrgId = orgId => {
+        setSearchParams({ orgId });
+    };
+
+    const orgId = searchParams.get("orgId");
+
+    if (orgId != null) {
+        return <OrganizationDetails orgId={orgId} onGoToOverview={onGoToOverview} />;
     } else {
         return <OrganizationOverview onSelectOrg={setSelectedOrgId} />;
     }

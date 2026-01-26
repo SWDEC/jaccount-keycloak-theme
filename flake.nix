@@ -39,6 +39,7 @@
               node2nix
               nodejs
               yarn-berry
+              maven
             ];
           };
         }

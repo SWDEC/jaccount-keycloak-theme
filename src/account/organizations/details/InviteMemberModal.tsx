@@ -1,8 +1,16 @@
-import { FormSubmitButton, TextControl } from "../../../shared/keycloak-ui-shared";
+import {
+    BaseEnvironment,
+    FormSubmitButton,
+    TextControl,
+    useEnvironment
+} from "../../../shared/keycloak-ui-shared";
 import { Button, ButtonVariant, Form, Modal, ModalVariant } from "@patternfly/react-core";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useAlerts } from "../../../shared/keycloak-ui-shared";
+import { inviteOrganizationMember } from "../../api/orgs-sidecar-methods";
+import { useContext } from "react";
+import { KcContextEnv } from "../../KcContextEnv";
 
 type InviteMemberModalProps = {
     orgId: string;
@@ -10,20 +18,18 @@ type InviteMemberModalProps = {
 };
 
 export const InviteMemberModal = ({ orgId, onClose }: InviteMemberModalProps) => {
-    // TODO: const { adminClient } = useAdminClient();
     const { addAlert, addError } = useAlerts();
 
     const { t } = useTranslation();
+    const context = useEnvironment<BaseEnvironment>();
+    const kcContext = useContext(KcContextEnv)!;
     const form = useForm<Record<string, string>>();
     const { handleSubmit, formState } = form;
 
     const submitForm = async (data: Record<string, string>) => {
         try {
-            const formData = new FormData();
-            for (const key in data) {
-                formData.append(key, data[key]);
-            }
-            // TODO: await adminClient.organizations.invite({ orgId }, formData);
+            const email = data["email"];
+            await inviteOrganizationMember(context, kcContext, orgId, email);
             addAlert(t("inviteSent"));
             onClose();
         } catch (error) {

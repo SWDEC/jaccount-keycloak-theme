@@ -6269,7 +6269,7 @@ __metadata:
     i18next: "npm:^25.2.1"
     i18next-fetch-backend: "npm:^6.0.0"
     keycloak-js: "npm:^26.2.0"
-    keycloakify: "npm:^11.9.3"
+    keycloakify: "npm:^11.11.2"
     lodash-es: "npm:^4.17.21"
     prettier: "npm:3.3.1"
     react: "npm:^18.2.0"
@@ -6451,14 +6451,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"keycloakify@npm:^11.9.3":
-  version: 11.9.3
-  resolution: "keycloakify@npm:11.9.3"
+"keycloakify@npm:^11.11.2":
+  version: 11.11.3
+  resolution: "keycloakify@npm:11.11.3"
   dependencies:
     tsafe: "npm:^1.8.5"
   bin:
     keycloakify: bin/main.js
-  checksum: 10c0/63dd004a401d28f97016693e25f136aa470c574afff7a2c19b34233b4fd43b26a4e267442c3dd5fc6c285af69e565fa865bc661554d83af7dac1fadc014ac63a
+  checksum: 10c0/6493cd00ae8f6decd0cc554ae197d684f9dc8de4bf2c392c5e083b8859a9af5e381c7f33cccd678df2f86715dcda6fc9ae8c72543c48b462be81b11a51fa7ce9
   languageName: node
   linkType: hard
 

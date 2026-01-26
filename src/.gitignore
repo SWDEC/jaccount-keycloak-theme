@@ -1,6 +1,8 @@
 # This file is managed by Keycloakify, do not edit it manually.
 
 # === Owned files start ===
+# account/KcAccountUi.tsx
+# account/KcPage.tsx
 # account/routes.tsx
 # account/assets/content.ts
 # account/assets/favicon.svg
@@ -82,9 +84,7 @@
 /account/api.ts
 /account/environment.ts
 /account/i18next.d.ts
-/account/KcAccountUi.tsx
 /account/KcContext.ts
-/account/KcPage.tsx
 /account/account-security/AccountRow.tsx
 /account/account-security/DeviceActivity.tsx
 /account/account-security/LinkedAccounts.tsx

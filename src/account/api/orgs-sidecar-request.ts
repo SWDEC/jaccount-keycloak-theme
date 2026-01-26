@@ -2,13 +2,7 @@ import { BaseEnvironment, KeycloakContext } from "../../shared/keycloak-ui-share
 import { joinPath } from "../utils/joinPath";
 import { RequestOptions, token } from "./request";
 import { CONTENT_TYPE_HEADER, CONTENT_TYPE_JSON } from "./constants";
-
-export type BaseOrgSidecarBaseEnvironment = BaseEnvironment & {
-    /**
-     * The URL to the root of the Organizations Sidecar server, including the path if present.
-     */
-    sidecarServerBaseUrl: string;
-};
+import { type KcContext } from "../KcContext";
 
 async function _request(
     url: URL,
@@ -31,25 +25,26 @@ async function _request(
     });
 }
 
-export const url = (environment: BaseOrgSidecarBaseEnvironment, path: string) =>
+export const url = (environment: BaseEnvironment, kcContext: KcContext, path: string) =>
     new URL(
         joinPath(
-            environment.sidecarServerBaseUrl,
+            kcContext.properties.ORGS_SIDECAR_SERVER_URL,
+            "admin",
             "realms",
             environment.realm,
-            "account",
             path
         )
     );
 
 export async function request(
     path: string,
-    { environment, keycloak }: KeycloakContext<BaseOrgSidecarBaseEnvironment>,
+    { environment, keycloak }: KeycloakContext<BaseEnvironment>,
+    kcContext: KcContext,
     opts: RequestOptions = {},
     fullUrl?: URL
 ) {
     if (typeof fullUrl === "undefined") {
-        fullUrl = url(environment, path);
+        fullUrl = url(environment, kcContext, path);
     }
     return _request(fullUrl, {
         ...opts,

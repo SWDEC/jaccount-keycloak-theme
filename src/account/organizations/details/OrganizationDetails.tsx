@@ -6,16 +6,19 @@ import {
     ToolbarItem
 } from "@patternfly/react-core";
 import {
+    BaseEnvironment,
+    ErrorBoundaryFallback,
     ErrorBoundaryProvider,
     ErrorPage,
     KeycloakDataTable,
     KeycloakSpinner,
+    ListEmptyState,
     useAlerts,
     useEnvironment
 } from "../../../shared/keycloak-ui-shared";
 import { useTranslation } from "react-i18next";
 import { Page } from "../../components/page/Page";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import OrganizationRepresentation from "@keycloak/keycloak-admin-client/lib/defs/organizationRepresentation";
 import { usePromise } from "../../utils/usePromise";
 import { getUserOrganizations } from "../../api/methods";
@@ -23,20 +26,34 @@ import { InviteMemberModal } from "./InviteMemberModal";
 import { UserRepresentation } from "../../api/representations";
 import { Link } from "react-router-dom";
 import { RemoveMemberModal } from "./RemoveMemberModal";
-import { removeOrganizationMembers } from "../../api/orgs-sidecar-methods";
-import { OrgSidecarEnvironment } from "../../org-sidecar-environment";
+import {
+    getOrganizationMembers,
+    makeOrganizationManager,
+    removeOrganizationMember
+} from "../../api/orgs-sidecar-methods";
+import { KcContextEnv } from "../../KcContextEnv";
+import { MakeManagerModal } from "./MakeManagerModal";
 
 interface OrganizationDetailsProps {
     orgId: string;
     onGoToOverview: () => void;
 }
 
+const NoAccessErrorRenderer = () => {
+    const { t } = useTranslation();
+
+    return (
+        <ListEmptyState message={t("accessDenied")} instructions={t("accessDenied")} />
+    );
+};
+
 export const OrganizationDetails = ({
     orgId,
     onGoToOverview
 }: OrganizationDetailsProps) => {
     const { t } = useTranslation();
-    const context = useEnvironment<OrgSidecarEnvironment>();
+    const context = useEnvironment<BaseEnvironment>();
+    const kcContext = useContext(KcContextEnv)!;
     const { addError, addAlert } = useAlerts();
 
     const [key, setKey] = useState(0);
@@ -60,7 +77,8 @@ export const OrganizationDetails = ({
                     )
                 );
             }
-        }
+        },
+        [key]
     );
 
     const [openInviteMembers, setInviteMembers] = useState(false);
@@ -75,25 +93,15 @@ export const OrganizationDetails = ({
         setMembersToRemove(undefined);
     };
 
-    const loader = async (first?: number, max?: number) => {
-        try {
-            const members: UserRepresentation[] = [{}];
-            // TODO: Fetch actual members
-
-            return members;
-        } catch (error) {
-            addError("organizationsMembersListError", error);
-            return [];
-        }
-    };
-
     const removeMember = async (selectedMembers: UserRepresentation[]) => {
         try {
             clearMembersToRemove();
 
-            alert("TODO: Remove user");
-            const users = selectedMembers.map(user => user.id);
-            removeOrganizationMembers(context, users, orgId);
+            await Promise.all(
+                selectedMembers.map(member => {
+                    return removeOrganizationMember(context, kcContext, member.id, orgId);
+                })
+            );
 
             addAlert(t("organizationUsersLeft", { count: selectedMembers.length }));
         } catch (error) {
@@ -103,16 +111,37 @@ export const OrganizationDetails = ({
         refresh();
     };
 
-    const sendPasswordResetMail = async (users: UserRepresentation[]) => {
+    const [membersToMakeManager, setMembersToMakeManager] = useState<
+        undefined | UserRepresentation[]
+    >(undefined);
+    const clearMembersToMakeManager = () => {
+        setMembersToMakeManager(undefined);
+    };
+
+    const makeManager = async (selectedMembers: UserRepresentation[]) => {
         try {
+            clearMembersToMakeManager();
+
             await Promise.all(
-                users.map(user => {
-                    alert("TODO: Actually send password reset");
+                selectedMembers.map(member => {
+                    return makeOrganizationManager(context, kcContext, member.id, orgId);
                 })
             );
-            addAlert(t("passwordResetSent"));
+
+            addAlert(t("organizationMadeManager", { count: selectedMembers.length }));
         } catch (error) {
-            addError("passwordResetError", error);
+            addError("organizationMakeManagerError", error);
+        }
+
+        refresh();
+    };
+
+    const loader = async (first?: number, max?: number) => {
+        try {
+            return await getOrganizationMembers(context, kcContext, orgId, first, max);
+        } catch (error) {
+            addError("organizationsMembersListError", error);
+            return [];
         }
     };
 
@@ -137,59 +166,71 @@ export const OrganizationDetails = ({
                     }}
                 />
             )}
+            {membersToMakeManager && (
+                <MakeManagerModal
+                    onClose={clearMembersToMakeManager}
+                    onSubmit={() => {
+                        makeManager(membersToMakeManager);
+                    }}
+                />
+            )}
             <PageBreadcrumb>
                 <Breadcrumb>
                     <BreadcrumbItem>
-                        <Link onClick={onGoToOverview}>{t("organizations")}</Link>
+                        <Link onClick={onGoToOverview} to="">
+                            {t("organizations")}
+                        </Link>
                     </BreadcrumbItem>
                     <BreadcrumbItem>{org?.name}</BreadcrumbItem>
                 </Breadcrumb>
             </PageBreadcrumb>
             <Page title={org?.name || "Unknown organization"} description="">
                 <ErrorBoundaryProvider>
-                    <KeycloakDataTable
-                        key={key}
-                        loader={loader}
-                        ariaLabelKey="membersList"
-                        toolbarItem={
-                            <ToolbarItem>
-                                <Button variant="primary" onClick={toggleInviteMembers}>
-                                    {t("inviteMember")}
-                                </Button>
-                            </ToolbarItem>
-                        }
-                        columns={[
-                            {
-                                name: "firstName"
-                            },
-                            {
-                                name: "lastName"
-                            },
-                            {
-                                name: "2fa"
-                            },
-                            {
-                                name: "roles"
-                            },
-                            {
-                                name: "email"
+                    <ErrorBoundaryFallback fallback={NoAccessErrorRenderer}>
+                        <KeycloakDataTable
+                            key={key}
+                            loader={loader}
+                            ariaLabelKey="membersList"
+                            toolbarItem={
+                                <ToolbarItem>
+                                    <Button
+                                        variant="primary"
+                                        onClick={toggleInviteMembers}
+                                    >
+                                        {t("inviteMember")}
+                                    </Button>
+                                </ToolbarItem>
                             }
-                        ]}
-                        actions={[
-                            {
-                                title: t("remove"),
-                                onRowClick: member => {
-                                    setMembersToRemove([member]);
+                            columns={[
+                                {
+                                    name: "firstName"
+                                },
+                                {
+                                    name: "lastName"
+                                },
+                                {
+                                    name: "manager"
+                                },
+                                {
+                                    name: "email"
                                 }
-                            },
-                            {
-                                title: t("passwordReset"),
-                                onRowClick: member => {
-                                    sendPasswordResetMail([member]);
+                            ]}
+                            actions={[
+                                {
+                                    title: t("remove"),
+                                    onRowClick: member => {
+                                        setMembersToRemove([member]);
+                                    }
+                                },
+                                {
+                                    title: t("makeManager"),
+                                    onRowClick: member => {
+                                        setMembersToMakeManager([member]);
+                                    }
                                 }
-                            }
-                        ]}
-                    />
+                            ]}
+                        />
+                    </ErrorBoundaryFallback>
                 </ErrorBoundaryProvider>
             </Page>
         </>

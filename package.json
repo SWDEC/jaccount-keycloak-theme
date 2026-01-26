@@ -10,6 +10,7 @@
     "scripts": {
         "postinstall": "keycloakify sync-extensions",
         "dev": "vite",
+        "start": "keycloakify start-keycloak --keycloak-version 26",
         "build": "tsc && vite build",
         "build-keycloak-theme": "npm run build && keycloakify build",
         "storybook": "storybook dev -p 6006",

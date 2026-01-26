@@ -1,46 +1,102 @@
-import { KeycloakContext } from "../../shared/keycloak-ui-shared";
-import { BaseOrgSidecarBaseEnvironment, request } from "./orgs-sidecar-request";
+import { BaseEnvironment, KeycloakContext } from "../../shared/keycloak-ui-shared";
+import { KcContext } from "../KcContext";
+import { request } from "./orgs-sidecar-request";
 import { parseResponse } from "./parse-response";
 import { UserRepresentation } from "./representations";
 
-export type CallOptions = {
-    context: KeycloakContext<BaseOrgSidecarBaseEnvironment>;
-    signal?: AbortSignal;
-};
-
 export async function getOrganizationMembers(
+    context: KeycloakContext<BaseEnvironment>,
+    kcContext: KcContext,
     orgId: string,
-    { signal, context }: CallOptions
+    first?: number,
+    max?: number
 ): Promise<UserRepresentation[]> {
-    const response = await request(`/organizations/${orgId}/members`, context, {
-        signal
-    });
+    const searchParams: Record<string, string> = {};
+
+    if (first != null) {
+        searchParams.first = first.toString();
+    }
+    if (max != null) {
+        searchParams.max = max.toString();
+    }
+
+    const response = await request(
+        `/organizations/${orgId}/members`,
+        context,
+        kcContext,
+        {
+            searchParams
+        }
+    );
     return parseResponse<UserRepresentation[]>(response);
 }
 
 export async function inviteOrganizationMember(
-    context: KeycloakContext<BaseOrgSidecarBaseEnvironment>,
-    email: string,
-    orgId: string
+    context: KeycloakContext<BaseEnvironment>,
+    kcContext: KcContext,
+    orgId: string,
+    email: string
 ) {
-    return request(`/organizations/${orgId}/members/invite`, context, {
-        method: "POST",
-        body: {
-            email
+    const response = await request(
+        `/organizations/${orgId}/members/invite-user`,
+        context,
+        kcContext,
+        {
+            method: "POST",
+            body: { email }
         }
-    });
+    );
+
+    if (!response.ok) {
+        const { errors } = await response.json();
+        throw errors;
+    }
+
+    return undefined;
 }
 
-export async function removeOrganizationMembers(
-    context: KeycloakContext<BaseOrgSidecarBaseEnvironment>,
-    userIds: string[],
+export async function removeOrganizationMember(
+    context: KeycloakContext<BaseEnvironment>,
+    kcContext: KcContext,
+    userId: string,
     orgId: string
 ) {
-    return request(`/organizations/${orgId}/members`, context, {
-        method: "DELETE",
-        body: {
-            userIds,
-            orgId
+    const response = await request(
+        `/organizations/${orgId}/members/${userId}`,
+        context,
+        kcContext,
+        {
+            method: "DELETE"
         }
-    });
+    );
+
+    if (!response.ok) {
+        const { errors } = await response.json();
+        throw errors;
+    }
+
+    return undefined;
+}
+
+export async function makeOrganizationManager(
+    context: KeycloakContext<BaseEnvironment>,
+    kcContext: KcContext,
+    orgId: string,
+    userId: string
+) {
+    const response = await request(
+        `/organizations/${orgId}/managers/${userId}`,
+        context,
+        kcContext,
+        {
+            method: "PUT"
+        }
+    );
+
+    if (!response.ok) {
+        const { errors } = await response.json();
+        throw errors;
+    }
+
+    return undefined;
 }

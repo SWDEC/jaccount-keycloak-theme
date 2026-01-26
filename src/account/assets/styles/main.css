@@ -1,0 +1,79 @@
+:where(:root) {
+    --offwhite-50: #fbf9f8;
+    --offwhite-100: #f8f5f4;
+    --offwhite-200: #f3eeec;
+    --offwhite-300: #d2cdcb;
+    --offwhite-400: #b1adac;
+    --offwhite-500: #908f8f;
+    --offwhite-600: #787371;
+    --offwhite-700: #514f4e;
+    --offwhite-800: #3e3b3a;
+    --offwhite-900: #2c2b2b;
+    --offwhite-950: #111010;
+
+    --pf-v5-global--BackgroundColor--light-50: var(--offwhite-50);
+    --pf-v5-global--BackgroundColor--light-100: var(--offwhite-100);
+    --pf-v5-global--BackgroundColor--light-200: var(--offwhite-200);
+    --pf-v5-global--BackgroundColor--light-300: var(--offwhite-300);
+
+    --pf-v5-global--BackgroundColor--dark-100: var(--offwhite-950);
+    --pf-v5-global--BackgroundColor--dark-200: var(--offwhite-900);
+    --pf-v5-global--BackgroundColor--dark-300: var(--offwhite-800);
+    --pf-v5-global--BackgroundColor--dark-400: var(--offwhite-700);
+
+    --pf-v5-global--BackgroundColor--100: var(--pf-v5-global--BackgroundColor--light-100);
+    --pf-v5-global--BackgroundColor--200: var(--pf-v5-global--BackgroundColor--light-200);
+    --pf-v5-global--BackgroundColor--300: var(--pf-v5-global--BackgroundColor--light-300);
+    --pf-v5-global--BackgroundColor--400: var(--pf-v5-global--BackgroundColor--light-400);
+
+    --pf-v5-global--primary-color--100: #195335;
+    --pf-v5-global--primary-color--200: #195335;
+    --pf-v5-global--primary-color--300: #195335;
+    --pf-v5-global--primary-color--400: #f8f5f4;
+
+    --pf-v5-global--primary-color--light-100: #92c255;
+    --pf-v5-global--primary-color--dark-100: #195335;
+
+    --pf-v5-global--active-color--400: #92c255;
+
+    --pf-v5-global--link--Color: var(--pf-v5-global--primary-color--200);
+    --pf-v5-global--link--Color--hover: var(--pf-v5-global--primary-color--100);
+    --pf-v5-global--link--Color--light: var(--pf-v5-global--primary-color--light-100);
+    --pf-v5-global--link--Color--light--hover: var(
+        --pf-v5-global--primary-color--light-100
+    );
+    --pf-v5-global--link--Color--dark: var(--pf-v5-global--primary-color--dark-100);
+    --pf-v5-global--link--Color--dark--hover: var(
+        --pf-v5-global--primary-color--dark-100
+    );
+
+    --pf-v5-global--FontFamily--heading: "Montserrat", helvetica, arial, sans-serif;
+    --pf-v5-global--FontFamily--text: "Montserrat", helvetica, arial, sans-serif;
+}
+
+.pf-v5-c-title {
+    --pf-v5-c-title--m-xl--FontWeight: var(--pf-v5-global--FontWeight--bold) !important;
+    --pf-v5-c-title--m-2xl--FontWeight: var(--pf-v5-global--FontWeight--bold) !important;
+    --pf-v5-c-title--m-3xl--FontWeight: var(--pf-v5-global--FontWeight--bold) !important;
+    --pf-v5-c-title--m-4xl--FontWeight: var(--pf-v5-global--FontWeight--bold) !important;
+}
+
+:where(.pf-v5-theme-dark) {
+    --pf-v5-global--BackgroundColor--light-50: var(--offwhite-950);
+    --pf-v5-global--BackgroundColor--light-100: var(--offwhite-900);
+    --pf-v5-global--BackgroundColor--light-200: var(--offwhite-800);
+    --pf-v5-global--BackgroundColor--light-300: var(--offwhite-700);
+    --pf-v5-global--BackgroundColor--light-400: var(--offwhite-600);
+
+    --pf-v5-global--primary-color--100: #d5f2b0;
+    --pf-v5-global--primary-color--200: #b2dd7a;
+    --pf-v5-global--primary-color--300: #92c255;
+    --pf-v5-global--primary-color--400: #282925;
+
+    --pf-v5-global--primary-color--light-100: #d5f2b0;
+    --pf-v5-global--primary-color--dark-100: #92c255;
+}
+
+.pf-v5-c-button {
+    --pf-v5-c-button--m-primary--hover--Color: var(--pf-v5-global--Color--dark-100);
+}
