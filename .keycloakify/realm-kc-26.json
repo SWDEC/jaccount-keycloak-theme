@@ -466,8 +466,7 @@
                     "attributes": {}
                 }
             ],
-            "admin-permissions": [],
-            "data-sharing-dec": []
+            "admin-permissions": []
         }
     },
     "groups": [
@@ -612,6 +611,23 @@
     "webAuthnPolicyPasswordlessExtraOrigins": [],
     "users": [
         {
+            "id": "61813c96-4cfd-42af-bc3b-f5b564ed88b6",
+            "username": "juref-in-pliezhausen",
+            "firstName": "JuRef",
+            "lastName": "Pliezhausen",
+            "email": "juref-pliezhausen@swdec.de",
+            "emailVerified": true,
+            "createdTimestamp": 1769434565721,
+            "enabled": true,
+            "totp": false,
+            "credentials": [],
+            "disableableCredentialTypes": [],
+            "requiredActions": ["TERMS_AND_CONDITIONS"],
+            "realmRoles": ["default-roles-swdec"],
+            "notBefore": 0,
+            "groups": []
+        },
+        {
             "id": "bb55149c-c178-470a-bc71-b0f73adc2a86",
             "username": "someone-from-kv",
             "firstName": "Someone",
@@ -697,7 +713,8 @@
                     "view-profile",
                     "manage-account-links",
                     "manage-consent"
-                ]
+                ],
+                "myclient": ["uma_protection"]
             },
             "notBefore": 0,
             "groups": []
@@ -874,6 +891,45 @@
             ]
         },
         {
+            "id": "e5cae9ca-31f9-4914-b022-68857bc36f0d",
+            "clientId": "admin-permissions",
+            "surrogateAuthRequired": false,
+            "enabled": true,
+            "alwaysDisplayInConsole": false,
+            "clientAuthenticatorType": "client-secret",
+            "redirectUris": [],
+            "webOrigins": [],
+            "notBefore": 0,
+            "bearerOnly": false,
+            "consentRequired": false,
+            "standardFlowEnabled": true,
+            "implicitFlowEnabled": false,
+            "directAccessGrantsEnabled": false,
+            "serviceAccountsEnabled": true,
+            "publicClient": false,
+            "frontchannelLogout": false,
+            "protocol": "openid-connect",
+            "attributes": {
+                "realm_client": "false",
+                "client.secret.creation.time": "1769434443"
+            },
+            "authenticationFlowBindingOverrides": {},
+            "fullScopeAllowed": true,
+            "nodeReRegistrationTimeout": -1,
+            "defaultClientScopes": [],
+            "optionalClientScopes": [],
+            "authorizationServicesEnabled": true,
+            "secret": "hFyQT9nILbc5dBDSX6AS0grrxqys7DH4",
+            "authorizationSettings": {
+                "allowRemoteResourceManagement": true,
+                "decisionStrategy": "UNANIMOUS",
+                "policyEnforcementMode": "ENFORCING",
+                "policies": [],
+                "resources": [],
+                "scopes": []
+            }
+        },
+        {
             "id": "f5e032da-c8ab-48c2-959c-8466ad1e6a09",
             "clientId": "broker",
             "name": "${client_broker}",
@@ -919,10 +975,6 @@
             "id": "8fba88fa-61e9-45a4-893d-ab102973ebf6",
             "clientId": "myclient",
             "name": "",
-            "description": "",
-            "rootUrl": "https://my-theme.keycloakify.dev",
-            "adminUrl": "https://my-theme.keycloakify.dev",
-            "baseUrl": "https://my-theme.keycloakify.dev",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
@@ -945,23 +997,23 @@
             "protocol": "openid-connect",
             "attributes": {
                 "realm_client": "false",
-                "oidc.ciba.grant.enabled": "false",
-                "client.use.lightweight.access.token.enabled": "false",
-                "backchannel.logout.session.required": "true",
                 "post.logout.redirect.uris": "+",
-                "oauth2.device.authorization.grant.enabled": "false",
-                "display.on.consent.screen": "false",
-                "backchannel.logout.revoke.offline.tokens": "false",
                 "access.token.header.type.rfc9068": "false",
                 "acr.loa.map": "{}",
+                "backchannel.logout.revoke.offline.tokens": "false",
+                "backchannel.logout.session.required": "true",
                 "client.introspection.response.allow.jwt.claim.enabled": "false",
                 "client.secret.creation.time": "1769431052",
+                "client.use.lightweight.access.token.enabled": "false",
                 "client_credentials.use_refresh_token": "false",
+                "display.on.consent.screen": "false",
                 "dpop.bound.access.tokens": "false",
                 "frontchannel.logout.session.required": "true",
                 "id.token.as.detached.signature": "false",
                 "logout.confirmation.enabled": "false",
+                "oauth2.device.authorization.grant.enabled": "false",
                 "oauth2.jwt.authorization.grant.enabled": "false",
+                "oidc.ciba.grant.enabled": "false",
                 "request.object.required": "not required",
                 "require.pushed.authorization.requests": "false",
                 "standard.token.exchange.enabled": "false",
@@ -972,44 +1024,6 @@
             "authenticationFlowBindingOverrides": {},
             "fullScopeAllowed": true,
             "nodeReRegistrationTimeout": -1,
-            "protocolMappers": [
-                {
-                    "id": "e31180c2-0c19-4fd4-8da7-915902a1f13d",
-                    "name": "organizations",
-                    "protocol": "openid-connect",
-                    "protocolMapper": "oidc-organization-membership-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "introspection.token.claim": "true",
-                        "userinfo.token.claim": "true",
-                        "id.token.claim": "true",
-                        "access.token.claim": "true",
-                        "claim.name": "organizations",
-                        "jsonType.label": "JSON",
-                        "addOrganizationAttributes": "true",
-                        "addOrganizationId": "true",
-                        "lightweight.claim": "true",
-                        "multivalued": "true"
-                    }
-                },
-                {
-                    "id": "91a196c1-f93c-48a5-aced-b8d60fb09b62",
-                    "name": "Favourite Pet",
-                    "protocol": "openid-connect",
-                    "protocolMapper": "oidc-usermodel-attribute-mapper",
-                    "consentRequired": false,
-                    "config": {
-                        "introspection.token.claim": "true",
-                        "userinfo.token.claim": "true",
-                        "id.token.claim": "true",
-                        "lightweight.claim": "false",
-                        "access.token.claim": "true",
-                        "claim.name": "favourite_pet",
-                        "jsonType.label": "String",
-                        "user.attribute": "favourite_pet"
-                    }
-                }
-            ],
             "defaultClientScopes": [
                 "web-origins",
                 "acr",
@@ -1023,6 +1037,48 @@
                 "phone",
                 "offline_access",
                 "microprofile-jwt"
+            ],
+            "adminUrl": "https://my-theme.keycloakify.dev",
+            "baseUrl": "https://my-theme.keycloakify.dev",
+            "description": "",
+            "rootUrl": "https://my-theme.keycloakify.dev",
+            "protocolMappers": [
+                {
+                    "consentRequired": false,
+                    "id": "e31180c2-0c19-4fd4-8da7-915902a1f13d",
+                    "name": "organizations",
+                    "protocol": "openid-connect",
+                    "protocolMapper": "oidc-organization-membership-mapper",
+                    "config": {
+                        "access.token.claim": "true",
+                        "addOrganizationAttributes": "true",
+                        "addOrganizationId": "true",
+                        "claim.name": "organizations",
+                        "id.token.claim": "true",
+                        "introspection.token.claim": "true",
+                        "jsonType.label": "JSON",
+                        "lightweight.claim": "true",
+                        "multivalued": "true",
+                        "userinfo.token.claim": "true"
+                    }
+                },
+                {
+                    "consentRequired": false,
+                    "id": "91a196c1-f93c-48a5-aced-b8d60fb09b62",
+                    "name": "Favourite Pet",
+                    "protocol": "openid-connect",
+                    "protocolMapper": "oidc-usermodel-attribute-mapper",
+                    "config": {
+                        "access.token.claim": "true",
+                        "claim.name": "favourite_pet",
+                        "id.token.claim": "true",
+                        "introspection.token.claim": "true",
+                        "jsonType.label": "String",
+                        "lightweight.claim": "false",
+                        "user.attribute": "favourite_pet",
+                        "userinfo.token.claim": "true"
+                    }
+                }
             ]
         },
         {
@@ -2049,14 +2105,14 @@
                 "subComponents": {},
                 "config": {
                     "allowed-protocol-mapper-types": [
-                        "oidc-usermodel-property-mapper",
-                        "saml-user-attribute-mapper",
-                        "oidc-usermodel-attribute-mapper",
-                        "oidc-sha256-pairwise-sub-mapper",
-                        "saml-role-list-mapper",
                         "oidc-full-name-mapper",
+                        "saml-role-list-mapper",
+                        "oidc-usermodel-property-mapper",
+                        "saml-user-property-mapper",
+                        "oidc-usermodel-attribute-mapper",
                         "oidc-address-mapper",
-                        "saml-user-property-mapper"
+                        "saml-user-attribute-mapper",
+                        "oidc-sha256-pairwise-sub-mapper"
                     ]
                 }
             },
@@ -2086,10 +2142,10 @@
                 "subComponents": {},
                 "config": {
                     "allowed-protocol-mapper-types": [
-                        "saml-user-property-mapper",
                         "saml-user-attribute-mapper",
                         "oidc-usermodel-attribute-mapper",
                         "oidc-full-name-mapper",
+                        "saml-user-property-mapper",
                         "saml-role-list-mapper",
                         "oidc-usermodel-property-mapper",
                         "oidc-sha256-pairwise-sub-mapper",
@@ -3164,7 +3220,13 @@
             "enabled": true,
             "id": "9c1c6fd6-5f20-4cfa-be1f-483e846b893c",
             "name": "EC Pliezhausen",
-            "attributes": {}
+            "attributes": {},
+            "members": [
+                {
+                    "membershipType": "UNMANAGED",
+                    "username": "juref-in-pliezhausen"
+                }
+            ]
         },
         {
             "alias": "ec-ruebgarten",
@@ -3185,14 +3247,6 @@
                 }
             ],
             "members": [
-                {
-                    "membershipType": "MANAGED",
-                    "username": "asdf"
-                },
-                {
-                    "membershipType": "UNMANAGED",
-                    "username": "simon"
-                },
                 {
                     "membershipType": "UNMANAGED",
                     "username": "testuser"
@@ -3232,6 +3286,10 @@
                 }
             ],
             "members": [
+                {
+                    "membershipType": "UNMANAGED",
+                    "username": "juref-in-pliezhausen"
+                },
                 {
                     "membershipType": "UNMANAGED",
                     "username": "testuser"
