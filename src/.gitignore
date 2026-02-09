@@ -5,11 +5,13 @@
 # account/KcPage.tsx
 # account/routes.tsx
 # login/i18n.ts
+# login/index.css
 # account/assets/content.ts
 # account/assets/favicon.svg
 # account/assets/logo.svg
 # account/organizations/Organizations.tsx
 # login/assets/img/auth-logo.svg
+# login/assets/img/shape.svg
 # === Owned files end =====
 
 # === @keycloakify/keycloak-ui-shared v260305.0.0 ===
@@ -162,7 +164,6 @@
 /components/langauges.tsx
 /components/theme-provider.tsx
 /components/theme-toggle.tsx
-/login/index.css
 /login/KcContext.ts
 /login/KcPage.tsx
 /login/styleLevelCustomization.tsx
@@ -187,7 +188,6 @@
 /login/pages/PageIndex.tsx
 /login/shared/getColorScheme.ts
 /login/shared/redirectUrlOrigin.ts
-/login/assets/img/shape.svg
 /login/components/Template/index.ts
 /login/components/Template/Template.tsx
 /login/components/Template/useInitializeTemplate.ts

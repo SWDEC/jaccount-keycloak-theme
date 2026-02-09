@@ -13,6 +13,7 @@ import { Page } from "../../components/page/Page";
 import { Environment } from "../../environment";
 import { usePromise } from "../../utils/usePromise";
 import { Link } from "react-router-dom";
+import { Card } from "@/components/ui/card";
 
 interface OrganizationOverviewProps {
     onSelectOrg: (orgId: string) => void;
@@ -35,23 +36,25 @@ export const OrganizationOverview: React.FC<OrganizationOverviewProps> = ({
     return (
         <Page title={t("organizations")} description={t("organizationDescription")}>
             <ErrorBoundaryProvider>
-                <OrganizationTable
-                    link={({ organization, children }) => (
-                        <Link
-                            onClick={() => {
-                                onSelectOrg(organization.id!);
-                            }}
-                        >
-                            {children}
-                        </Link>
-                    )}
-                    loader={userOrgs}
-                >
-                    <ListEmptyState
-                        message={t("emptyUserOrganizations")}
-                        instructions={t("emptyUserOrganizationsInstructions")}
-                    />
-                </OrganizationTable>
+                <Card>
+                    <OrganizationTable
+                        link={({ organization, children }) => (
+                            <Link
+                                onClick={() => {
+                                    onSelectOrg(organization.id!);
+                                }}
+                            >
+                                {children}
+                            </Link>
+                        )}
+                        loader={userOrgs}
+                    >
+                        <ListEmptyState
+                            message={t("emptyUserOrganizations")}
+                            instructions={t("emptyUserOrganizationsInstructions")}
+                        />
+                    </OrganizationTable>
+                </Card>
             </ErrorBoundaryProvider>
         </Page>
     );

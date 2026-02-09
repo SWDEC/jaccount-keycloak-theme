@@ -13,7 +13,8 @@ const { I18nProvider, useI18n } = i18nBuilder
     .withThemeName<ThemeName>()
     .withCustomTranslations({
         en: {
-            welcomeMessage: "Welcome to your SWD-EC jAccount.",
+            welcomeMessage:
+                "Welcome to your jAccount. One account for everything SWD-EC.",
             loginAccountTitle: "Login to your account",
             registerTitle: "Register a new account",
             email: "Email",
@@ -21,10 +22,12 @@ const { I18nProvider, useI18n } = i18nBuilder
             noAccount: "Don't have an account?",
             doRegister: "Sign up",
             "organization.selectTitle": "Choose Your Organization",
+            "organization.select": "Choose Your Organization",
             "organization.pickPlaceholder": "Pick an organization to continue"
         },
         de: {
-            welcomeMessage: "Willkommen bei deinem SWD-EC jAccount.",
+            welcomeMessage:
+                "Willkommen bei deinem jAccount. Ein Account für alles im SWD-EC.",
             loginAccountTitle: "Mit deinem jAccount einloggen",
             registerTitle: "Einen jAccount erstellen",
             email: "E-Mail",
@@ -33,8 +36,13 @@ const { I18nProvider, useI18n } = i18nBuilder
             doRegister: "Registrieren",
             noAccount: "Noch keinen Account?",
             "organization.selectTitle": "Wähle eine Jugendarbeit",
+            "organization.select":
+                "Wähle die Jugendarbeit, über die du dich einloggen willst",
             "organization.pickPlaceholder":
-                "Wähle die Jugendarbeit, über die du dich einloggen willst"
+                "Wähle die Jugendarbeit, über die du dich einloggen willst",
+            doLogIn: "Mit jAccount anmelden",
+            emailInstruction:
+                "Gib deinen Benutzernamen oder deine E-Mail-Adresse ein und klicke auf Absenden. Dann schicken wir dir eine E-Mail mit dem nächsten Schritt."
         }
     })
     .build();
