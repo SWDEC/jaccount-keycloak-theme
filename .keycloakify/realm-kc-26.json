@@ -542,7 +542,7 @@
             "inviteMemberOptionalData": "Folgende Daten sind optional und können auch von der Person selbst ausgefüllt werden",
             "makeManager": "Zum Verwalter ernennen",
             "makeManagerDescription": "Du bist dabei, dieser Person Verwaltungsrechte für diese Jugendarbeit / diesen KV zu geben. Als Verwalter kann diese Person alle anderen Leute sehen, weitere Leute zu Verwaltern machen und dir deine Verwaltungsrechte entziehen.",
-            "manger": "Verwalter",
+            "manager": "Verwalter",
             "organization.select": "Wähle die Jugendarbeit, über die du dich einloggen willst",
             "organizationDescription": "Jugendarbeiten oder Kreisverbände, zu denen du gehörst",
             "organizationMakeManagerError": "Fehler beim Ernennen zum Verwalter",
@@ -3250,12 +3250,7 @@
             "enabled": true,
             "id": "4998e3b2-c3a4-4e68-82b7-7a0f38db69c8",
             "name": "EC Rübgarten",
-            "attributes": {
-                "manager": [
-                    "d93e1772-4916-4243-850f-a6d9b2615716",
-                    "someone-who-does-not-exist"
-                ]
-            },
+            "attributes": {},
             "domains": [
                 {
                     "name": "ec-ruebgarten.de",
@@ -3275,9 +3270,7 @@
             "enabled": true,
             "id": "7002dd61-b083-4f64-af3e-5cb194000b52",
             "name": "KV Stuttgart",
-            "attributes": {
-                "manager": ["admin"]
-            }
+            "attributes": {}
         },
         {
             "alias": "swdec",
@@ -3285,9 +3278,7 @@
             "enabled": true,
             "id": "6c72e57b-577c-4e35-bb88-6a18ec322ba3",
             "name": "SWD-EC",
-            "attributes": {
-                "manager": ["admin", "d93e1772-4916-4243-850f-a6d9b2615716"]
-            },
+            "attributes": {},
             "domains": [
                 {
                     "name": "swdec.de",
