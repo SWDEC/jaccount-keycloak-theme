@@ -3,7 +3,8 @@ import {
     BreadcrumbItem,
     Button,
     PageBreadcrumb,
-    ToolbarItem
+    ToolbarItem,
+    Tooltip
 } from "@patternfly/react-core";
 import {
     BaseEnvironment,
@@ -33,6 +34,16 @@ import {
 } from "../../api/orgs-sidecar-methods";
 import { KcContextEnv } from "../../KcContextEnv";
 import { MakeManagerModal } from "./MakeManagerModal";
+import {
+    CheckCircleIcon,
+    CloseIcon,
+    CrossIcon,
+    ExclamationCircleIcon,
+    LockIcon,
+    LockOpenIcon,
+    ShieldAltIcon,
+    ShieldVirusIcon
+} from "@patternfly/react-icons";
 
 interface OrganizationDetailsProps {
     orgId: string;
@@ -209,10 +220,15 @@ export const OrganizationDetails = ({
                                     name: "lastName"
                                 },
                                 {
-                                    name: "manager"
+                                    name: "email",
+                                    cellRenderer: ValidatedEmail
                                 },
                                 {
-                                    name: "email"
+                                    name: "totp",
+                                    cellRenderer: TotpRenderer
+                                },
+                                {
+                                    name: "groups"
                                 }
                             ]}
                             actions={[
@@ -235,4 +251,36 @@ export const OrganizationDetails = ({
             </Page>
         </>
     );
+};
+
+const ValidatedEmail = (user: UserRepresentation) => {
+    const { t } = useTranslation();
+    return (
+        <>
+            {!user.emailVerified && (
+                <Tooltip content={t("notVerified")}>
+                    <ExclamationCircleIcon
+                        style={{ color: "var(--pf-v5-global--danger-color--100)" }}
+                    />
+                </Tooltip>
+            )}{" "}
+            {user.email}
+        </>
+    );
+};
+
+const TotpRenderer = (user: UserRepresentation) => {
+    if (user.totp) {
+        return (
+            <>
+                <LockIcon style={{ color: "var(--pf-v5-global--success-color--100)" }} />
+            </>
+        );
+    } else {
+        return (
+            <>
+                <LockOpenIcon style={{ color: "var(--pf-v5-global--Color--200)" }} />
+            </>
+        );
+    }
 };

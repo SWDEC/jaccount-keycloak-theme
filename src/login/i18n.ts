@@ -1,28 +1,42 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { i18nBuilder } from "keycloakify/login";
+/**
+ * This file has been claimed for ownership from @oussemasahbeni/keycloakify-login-shadcn version 250004.0.15.
+ * To relinquish ownership and restore this file to its original content, run the following command:
+ *
+ * $ npx keycloakify own --path "login/i18n.ts" --revert
+ */
+
+import { i18nBuilder } from "@keycloakify/login-ui/i18n";
 import type { ThemeName } from "../kc.gen";
 
 /** @see: https://docs.keycloakify.dev/features/i18n */
-const { useI18n, ofTypeI18n } = i18nBuilder
+const { I18nProvider, useI18n } = i18nBuilder
     .withThemeName<ThemeName>()
     .withCustomTranslations({
         en: {
-            loginAccountTitle: "Sign in with jAccount"
+            welcomeMessage: "Welcome to your SWD-EC jAccount.",
+            loginAccountTitle: "Login to your account",
+            registerTitle: "Register a new account",
+            email: "Email",
+            enterCredentials: "Enter your credentials below to login",
+            noAccount: "Don't have an account?",
+            doRegister: "Sign up",
+            "organization.selectTitle": "Choose Your Organization",
+            "organization.pickPlaceholder": "Pick an organization to continue"
         },
         de: {
-            loginAccountTitle: "Mit jAccount anmelden",
-            emailInstruction:
-                "Gib deinen Benutzernamen oder deine E-Mail Adresse ein und klicke auf Absenden. Danach werden wir dir eine E-Mail mit weiteren Instruktionen zusenden.",
-            emailSentMessage:
-                "Du solltest in Kürze eine E-Mail mit weiteren Instruktionen erhalten.",
-            emailSendErrorMessage:
-                "Die E-Mail konnte nicht versendet werden. Bitte versuche es später noch einmal.",
-            successLogout: "Du bist abgemeldet.",
-            alreadyLoggedIn: "Du bist bereits angemeldet."
+            welcomeMessage: "Willkommen bei deinem SWD-EC jAccount.",
+            loginAccountTitle: "Mit deinem jAccount einloggen",
+            registerTitle: "Einen jAccount erstellen",
+            email: "E-Mail",
+            enterCredentials:
+                "Entrez vos informations d'identification ci-dessous pour vous connecter",
+            doRegister: "Registrieren",
+            noAccount: "Noch keinen Account?",
+            "organization.selectTitle": "Wähle eine Jugendarbeit",
+            "organization.pickPlaceholder":
+                "Wähle die Jugendarbeit, über die du dich einloggen willst"
         }
     })
     .build();
 
-type I18n = typeof ofTypeI18n;
-
-export { useI18n, type I18n };
+export { I18nProvider, useI18n };
