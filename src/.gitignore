@@ -1,8 +1,6 @@
 # This file is managed by Keycloakify, do not edit it manually.
 
 # === Owned files start ===
-# account/KcAccountUi.tsx
-# account/KcPage.tsx
 # account/routes.tsx
 # login/i18n.ts
 # login/index.css
@@ -14,7 +12,8 @@
 # login/assets/img/shape.svg
 # === Owned files end =====
 
-# === @keycloakify/keycloak-ui-shared v260305.0.0 ===
+# === @keycloakify/keycloak-ui-shared v260502.0.0 ===
+/shared/SessionExpirationWarningOverlay.tsx
 /shared/keycloak-ui-shared/index.ts
 /shared/keycloak-ui-shared/main.ts
 /shared/@patternfly/react-core/index.tsx
@@ -64,7 +63,6 @@
 /shared/keycloak-ui-shared/user-profile/UserProfileGroup.tsx
 /shared/keycloak-ui-shared/user-profile/utils.ts
 /shared/keycloak-ui-shared/utils/createNamedContext.ts
-/shared/keycloak-ui-shared/utils/darkMode.ts
 /shared/keycloak-ui-shared/utils/ErrorBoundary.tsx
 /shared/keycloak-ui-shared/utils/errors.ts
 /shared/keycloak-ui-shared/utils/generateId.ts
@@ -84,11 +82,14 @@
 /shared/keycloak-ui-shared/controls/table/PaginatingTableToolbar.tsx
 /shared/keycloak-ui-shared/controls/table/TableToolbar.tsx
 
-# === @keycloakify/keycloak-account-ui v260305.0.0 ===
+# === @keycloakify/keycloak-account-ui v260502.0.2 ===
 /account/api.ts
+/account/colorScheme.ts
 /account/environment.ts
 /account/i18next.d.ts
+/account/KcAccountUi.tsx
 /account/KcContext.ts
+/account/KcPage.tsx
 /account/account-security/AccountRow.tsx
 /account/account-security/DeviceActivity.tsx
 /account/account-security/LinkedAccounts.tsx
@@ -107,6 +108,7 @@
 /account/i18n/i18n.ts
 /account/i18n/index.ts
 /account/i18n/messages_ar.properties
+/account/i18n/messages_az.properties
 /account/i18n/messages_ca.properties
 /account/i18n/messages_cs.properties
 /account/i18n/messages_da.properties
@@ -114,6 +116,7 @@
 /account/i18n/messages_el.properties
 /account/i18n/messages_en.properties
 /account/i18n/messages_es.properties
+/account/i18n/messages_eu.properties
 /account/i18n/messages_fa.properties
 /account/i18n/messages_fi.properties
 /account/i18n/messages_fr.properties
@@ -122,6 +125,7 @@
 /account/i18n/messages_it.properties
 /account/i18n/messages_ja.properties
 /account/i18n/messages_ka.properties
+/account/i18n/messages_kk.properties
 /account/i18n/messages_ky.properties
 /account/i18n/messages_lt.properties
 /account/i18n/messages_lv.properties
@@ -138,8 +142,8 @@
 /account/i18n/messages_th.properties
 /account/i18n/messages_tr.properties
 /account/i18n/messages_uk.properties
-/account/i18n/messages_zh_CN.properties
-/account/i18n/messages_zh_TW.properties
+/account/i18n/messages_zh_Hans.properties
+/account/i18n/messages_zh_Hant.properties
 /account/oid4vci/Oid4Vci.tsx
 /account/personal-info/PersonalInfo.tsx
 /account/resources/EditTheResource.tsx

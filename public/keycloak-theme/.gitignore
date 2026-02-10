@@ -3,6 +3,9 @@
 # === Owned files start ===
 # === Owned files end =====
 
+# === @keycloakify/keycloak-account-ui v260502.0.2 ===
+/account/early-color-scheme.js
+
 # === @oussemasahbeni/keycloakify-login-shadcn v250004.0.15 ===
 /early-color-scheme.js
 /keycloak-theme/login/js/authChecker.js
