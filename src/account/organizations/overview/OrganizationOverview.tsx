@@ -12,8 +12,8 @@ import { getUserOrganizations } from "../../api/methods";
 import { Page } from "../../components/page/Page";
 import { Environment } from "../../environment";
 import { usePromise } from "../../utils/usePromise";
-import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
+import { Button, ButtonVariant } from "@patternfly/react-core";
 
 interface OrganizationOverviewProps {
     onSelectOrg: (orgId: string) => void;
@@ -39,14 +39,14 @@ export const OrganizationOverview: React.FC<OrganizationOverviewProps> = ({
                 <Card>
                     <OrganizationTable
                         link={({ organization, children }) => (
-                            <Link
+                            <Button
+                                variant={ButtonVariant.link}
                                 onClick={() => {
                                     onSelectOrg(organization.id!);
                                 }}
-                                to=""
                             >
                                 {children}
-                            </Link>
+                            </Button>
                         )}
                         loader={userOrgs}
                     >
