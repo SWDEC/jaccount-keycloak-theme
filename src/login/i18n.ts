@@ -28,7 +28,11 @@ const { I18nProvider, useI18n } = i18nBuilder
             emailInstruction:
                 "Enter your email and click on send. We will send you a mail with the next step.",
             "organization.member.register.title":
-                "Create an account to join ${kc.org.name}"
+                "Create an account to join ${kc.org.name}",
+            "organization.confirm-membership.title": "Join ${kc.org.name}",
+            "organization.confirm-membership":
+                "You are about to join {0}. The admins of the Jugendarbeit / the KV will be able to view your data in order to see who is part of their group.",
+            proceedWithAction: "Accept and proceed"
         },
         de: {
             welcomeMessage:
@@ -49,7 +53,11 @@ const { I18nProvider, useI18n } = i18nBuilder
             emailInstruction:
                 "Gib deine E-Mail-Adresse ein und klicke auf Absenden. Dann schicken wir dir eine E-Mail mit dem nächsten Schritt.",
             "organization.member.register.title":
-                "Erstelle ein Konto, um dem ${kc.org.name} beizutreten"
+                "Erstelle ein Konto, um dem ${kc.org.name} beizutreten",
+            "organization.confirm-membership.title": "${kc.org.name} beitreten",
+            "organization.confirm-membership":
+                "Du bist dabei, dem {0} beizutreten. Die jeweiligen Admins der Jugendarbeit / des KVs können dann deine Daten sehen, um einen Überblick zu haben, wer Teil der Gruppe ist.",
+            proceedWithAction: "Akzeptieren und weiter"
         }
     })
     .build();
