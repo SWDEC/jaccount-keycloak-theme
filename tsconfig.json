@@ -25,6 +25,6 @@
         }
     },
     "include": ["src"],
-    "exclude": ["src/login/pages/**"],
+    "exclude": ["src/login/pages/**", "src/account/i18next.d.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
