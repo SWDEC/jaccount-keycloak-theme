@@ -9,8 +9,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useAlerts } from "../../../shared/keycloak-ui-shared";
 import { inviteOrganizationMember } from "../../api/orgs-sidecar-methods";
-import { useContext } from "react";
-import { KcContextEnv } from "../../KcContextEnv";
+import { getKcContext } from "../../KcContext";
 
 type InviteMemberModalProps = {
     orgId: string;
@@ -22,7 +21,7 @@ export const InviteMemberModal = ({ orgId, onClose }: InviteMemberModalProps) =>
 
     const { t } = useTranslation();
     const context = useEnvironment<BaseEnvironment>();
-    const kcContext = useContext(KcContextEnv)!;
+    const { kcContext } = getKcContext();
     const form = useForm<Record<string, string>>();
     const { handleSubmit, formState } = form;
 

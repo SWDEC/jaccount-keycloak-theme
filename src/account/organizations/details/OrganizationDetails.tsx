@@ -19,7 +19,7 @@ import {
 } from "../../../shared/keycloak-ui-shared";
 import { useTranslation } from "react-i18next";
 import { Page } from "../../components/page/Page";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import OrganizationRepresentation from "@keycloak/keycloak-admin-client/lib/defs/organizationRepresentation";
 import { usePromise } from "../../utils/usePromise";
 import { getUserOrganizations } from "../../api/methods";
@@ -32,18 +32,9 @@ import {
     makeOrganizationManager,
     removeOrganizationMember
 } from "../../api/orgs-sidecar-methods";
-import { KcContextEnv } from "../../KcContextEnv";
+import { getKcContext } from "../../KcContext";
 import { MakeManagerModal } from "./MakeManagerModal";
-import {
-    CheckCircleIcon,
-    CloseIcon,
-    CrossIcon,
-    ExclamationCircleIcon,
-    LockIcon,
-    LockOpenIcon,
-    ShieldAltIcon,
-    ShieldVirusIcon
-} from "@patternfly/react-icons";
+import { ExclamationCircleIcon, LockIcon, LockOpenIcon } from "@patternfly/react-icons";
 
 interface OrganizationDetailsProps {
     orgId: string;
@@ -64,7 +55,7 @@ export const OrganizationDetails = ({
 }: OrganizationDetailsProps) => {
     const { t } = useTranslation();
     const context = useEnvironment<BaseEnvironment>();
-    const kcContext = useContext(KcContextEnv)!;
+    const { kcContext } = getKcContext();
     const { addError, addAlert } = useAlerts();
 
     const [key, setKey] = useState(0);

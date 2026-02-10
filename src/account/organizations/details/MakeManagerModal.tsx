@@ -36,6 +36,8 @@ export const MakeManagerModal = ({ onClose, onSubmit }: MakeManagerModalProps) =
                     {t("cancel")}
                 </Button>
             ]}
-        ></Modal>
+        >
+            <></>
+        </Modal>
     );
 };

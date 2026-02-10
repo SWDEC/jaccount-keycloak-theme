@@ -43,6 +43,7 @@ export const OrganizationOverview: React.FC<OrganizationOverviewProps> = ({
                                 onClick={() => {
                                     onSelectOrg(organization.id!);
                                 }}
+                                to=""
                             >
                                 {children}
                             </Link>

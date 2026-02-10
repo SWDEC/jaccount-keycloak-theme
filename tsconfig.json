@@ -25,5 +25,6 @@
         }
     },
     "include": ["src"],
+    "exclude": ["src/components/ui/**", "src/login/pages/**"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

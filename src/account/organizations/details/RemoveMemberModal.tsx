@@ -36,6 +36,8 @@ export const RemoveMemberModal = ({ onClose, onSubmit }: RemoveMemberModalProps)
                     {t("cancel")}
                 </Button>
             ]}
-        ></Modal>
+        >
+            <></>
+        </Modal>
     );
 };

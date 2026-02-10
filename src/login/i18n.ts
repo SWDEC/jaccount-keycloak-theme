@@ -19,11 +19,14 @@ const { I18nProvider, useI18n } = i18nBuilder
             registerTitle: "Register a new account",
             email: "Email",
             enterCredentials: "Enter your credentials below to login",
-            noAccount: "Don't have an account?",
             doRegister: "Sign up",
+            noAccount: "Don't have an account?",
             "organization.selectTitle": "Choose Your Organization",
             "organization.select": "Choose Your Organization",
-            "organization.pickPlaceholder": "Pick an organization to continue"
+            "organization.pickPlaceholder": "Pick an organization to continue",
+            doLogIn: "Sign in with jAccount",
+            emailInstruction:
+                "Enter your email and click on send. We will send you a mail with the next step."
         },
         de: {
             welcomeMessage:
@@ -42,7 +45,7 @@ const { I18nProvider, useI18n } = i18nBuilder
                 "Wähle die Jugendarbeit, über die du dich einloggen willst",
             doLogIn: "Mit jAccount anmelden",
             emailInstruction:
-                "Gib deinen Benutzernamen oder deine E-Mail-Adresse ein und klicke auf Absenden. Dann schicken wir dir eine E-Mail mit dem nächsten Schritt."
+                "Gib deine E-Mail-Adresse ein und klicke auf Absenden. Dann schicken wir dir eine E-Mail mit dem nächsten Schritt."
         }
     })
     .build();
