@@ -26,7 +26,9 @@ const { I18nProvider, useI18n } = i18nBuilder
             "organization.pickPlaceholder": "Pick an organization to continue",
             doLogIn: "Sign in with jAccount",
             emailInstruction:
-                "Enter your email and click on send. We will send you a mail with the next step."
+                "Enter your email and click on send. We will send you a mail with the next step.",
+            "organization.member.register.title":
+                "Create an account to join ${kc.org.name}"
         },
         de: {
             welcomeMessage:
@@ -45,7 +47,9 @@ const { I18nProvider, useI18n } = i18nBuilder
                 "Wähle die Jugendarbeit, über die du dich einloggen willst",
             doLogIn: "Mit jAccount anmelden",
             emailInstruction:
-                "Gib deine E-Mail-Adresse ein und klicke auf Absenden. Dann schicken wir dir eine E-Mail mit dem nächsten Schritt."
+                "Gib deine E-Mail-Adresse ein und klicke auf Absenden. Dann schicken wir dir eine E-Mail mit dem nächsten Schritt.",
+            "organization.member.register.title":
+                "Erstelle ein Konto, um dem ${kc.org.name} beizutreten"
         }
     })
     .build();
