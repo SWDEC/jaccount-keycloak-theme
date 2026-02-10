@@ -1,7 +1,6 @@
 # This file is managed by Keycloakify, do not edit it manually.
 
 # === Owned files start ===
-# account/routes.tsx
 # login/i18n.ts
 # login/index.css
 # account/assets/content.ts
@@ -90,6 +89,7 @@
 /account/KcAccountUi.tsx
 /account/KcContext.ts
 /account/KcPage.tsx
+/account/routes.tsx
 /account/account-security/AccountRow.tsx
 /account/account-security/DeviceActivity.tsx
 /account/account-security/LinkedAccounts.tsx
