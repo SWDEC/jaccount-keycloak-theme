@@ -2,6 +2,7 @@
     "name": "jaccount-keycloak-theme",
     "version": "0.0.2",
     "description": "Starter for Keycloakify 11",
+    "packageManager": "yarn@4.9.1",
     "repository": {
         "type": "git",
         "url": "git://github.com/keycloakify/keycloakify-starter.git"
