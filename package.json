@@ -1,6 +1,6 @@
 {
     "name": "jaccount-keycloak-theme",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Starter for Keycloakify 11",
     "packageManager": "yarn@4.9.1",
     "repository": {
