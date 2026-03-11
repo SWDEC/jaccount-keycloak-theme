@@ -164,7 +164,7 @@
 /account/components/datalist/EmptyRow.tsx
 /account/components/page/Page.tsx
 
-# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.15 ===
+# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.17 ===
 /components/langauges.tsx
 /components/theme-provider.tsx
 /components/theme-toggle.tsx
@@ -178,15 +178,17 @@
 /components/ui/checkbox.tsx
 /components/ui/dropdown-menu.tsx
 /components/ui/field.tsx
+/components/ui/input-group.tsx
 /components/ui/input-otp.tsx
 /components/ui/input.tsx
 /components/ui/label.tsx
 /components/ui/radio-group.tsx
 /components/ui/select.tsx
 /components/ui/separator.tsx
+/components/ui/textarea.tsx
 /components/ui/tooltip.tsx
 /login/components/LogoutOtherSessions.tsx
-/login/components/PasswordWrapper.tsx
+/login/components/PasswordVisibilityButton.tsx
 /login/mocks/getKcContextMock.ts
 /login/mocks/KcPageStory.tsx
 /login/pages/PageIndex.tsx
@@ -194,6 +196,7 @@
 /login/shared/redirectUrlOrigin.ts
 /login/components/Template/index.ts
 /login/components/Template/Template.tsx
+/login/components/Template/useAuthChecker.ts
 /login/components/Template/useInitializeTemplate.ts
 /login/components/UserProfileFormFields/AddRemoveButtonsMultiValuedAttribute.tsx
 /login/components/UserProfileFormFields/DO_MAKE_USER_CONFIRM_PASSWORD.ts
@@ -207,6 +210,9 @@
 /login/components/UserProfileFormFields/SelectTag.tsx
 /login/components/UserProfileFormFields/TextareaTag.tsx
 /login/components/UserProfileFormFields/UserProfileFormFields.tsx
+/login/components/WebAuthnConditionalUi/index.ts
+/login/components/WebAuthnConditionalUi/useLogic.tsx
+/login/components/WebAuthnConditionalUi/WebAuthnConditionalUi.tsx
 /login/pages/code/index.ts
 /login/pages/code/Page.stories.tsx
 /login/pages/code/Page.tsx
@@ -238,7 +244,6 @@
 /login/pages/login/Page.tsx
 /login/pages/login/SocialProviders.tsx
 /login/pages/login/useProviderLogos.tsx
-/login/pages/login/useScript.tsx
 /login/pages/login-config-totp/index.ts
 /login/pages/login-config-totp/Page.stories.tsx
 /login/pages/login-config-totp/Page.tsx
@@ -270,7 +275,6 @@
 /login/pages/login-password/index.ts
 /login/pages/login-password/Page.stories.tsx
 /login/pages/login-password/Page.tsx
-/login/pages/login-password/useScript.tsx
 /login/pages/login-recovery-authn-code-config/index.ts
 /login/pages/login-recovery-authn-code-config/Page.stories.tsx
 /login/pages/login-recovery-authn-code-config/Page.tsx
@@ -294,7 +298,6 @@
 /login/pages/login-username/index.ts
 /login/pages/login-username/Page.stories.tsx
 /login/pages/login-username/Page.tsx
-/login/pages/login-username/useScript.tsx
 /login/pages/login-verify-email/index.ts
 /login/pages/login-verify-email/Page.stories.tsx
 /login/pages/login-verify-email/Page.tsx
@@ -334,7 +337,7 @@
 /login/pages/webauthn-register/index.ts
 /login/pages/webauthn-register/Page.stories.tsx
 /login/pages/webauthn-register/Page.tsx
-/login/pages/webauthn-register/useScript.tsx
+/login/pages/webauthn-register/useLogic.ts
 /login/assets/fonts/geist/Geist-Black.woff2
 /login/assets/fonts/geist/Geist-Bold.woff2
 /login/assets/fonts/geist/Geist-Light.woff2
