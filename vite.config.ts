@@ -14,6 +14,10 @@ export default defineConfig({
             environmentVariables: [
                 { name: "ORGS_SIDECAR_SERVER_URL", default: "http://localhost:3000" }
             ],
+            keycloakVersionTargets: {
+                "22-to-25": false,
+                "all-other-versions": true
+            },
             groupId: "de.swdec.jaccount",
             startKeycloakOptions: {
                 dockerImage: "quay.io/keycloak/keycloak:nightly" // nightly build because we need some functionality. Switch to stable once 26.6 is out.
