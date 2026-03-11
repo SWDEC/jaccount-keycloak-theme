@@ -3,20 +3,25 @@ import {
     FormSubmitButton,
     TextControl,
     useEnvironment
-} from "../../../shared/keycloak-ui-shared";
+} from "../../../../shared/keycloak-ui-shared";
 import { Button, ButtonVariant, Form, Modal, ModalVariant } from "@patternfly/react-core";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useAlerts } from "../../../shared/keycloak-ui-shared";
-import { inviteOrganizationMember } from "../../api/orgs-sidecar-methods";
-import { getKcContext } from "../../KcContext";
+import { useAlerts } from "../../../../shared/keycloak-ui-shared";
+import { addGroupMember } from "../../../api/orgs-sidecar-methods";
+import { getKcContext } from "../../../KcContext";
 
-type InviteMemberModalProps = {
+type AddGroupMemberModalProps = {
     orgId: string;
+    groupId: string;
     onClose: () => void;
 };
 
-export const InviteMemberModal = ({ orgId, onClose }: InviteMemberModalProps) => {
+export const AddGroupMemberModal = ({
+    orgId,
+    groupId,
+    onClose
+}: AddGroupMemberModalProps) => {
     const { addAlert, addError } = useAlerts();
 
     const { t } = useTranslation();
@@ -27,20 +32,20 @@ export const InviteMemberModal = ({ orgId, onClose }: InviteMemberModalProps) =>
 
     const submitForm = async (data: Record<string, string>) => {
         try {
-            const email = data["email"];
-            await inviteOrganizationMember(context, kcContext, orgId, email);
-            addAlert(t("inviteSent"));
+            const userId = data["userId"];
+            await addGroupMember(context, kcContext, orgId, groupId, userId);
+            addAlert(t("groupMemberAdded"));
             onClose();
         } catch (error) {
-            addError("inviteSentError", error);
+            addError("groupMemberAddError", error);
         }
     };
 
     return (
         <Modal
             variant={ModalVariant.small}
-            title={t("inviteMember")}
-            description={t("inviteMemberDescription")}
+            title={t("addGroupMember")}
+            description={t("addGroupMemberDescription")}
             isOpen
             onClose={onClose}
             actions={[
@@ -68,8 +73,8 @@ export const InviteMemberModal = ({ orgId, onClose }: InviteMemberModalProps) =>
             <FormProvider {...form}>
                 <Form id="form" onSubmit={handleSubmit(submitForm)}>
                     <TextControl
-                        name="email"
-                        label={t("email")}
+                        name="userId"
+                        label={t("userId")}
                         rules={{ required: t("required") }}
                         autoFocus
                     />
