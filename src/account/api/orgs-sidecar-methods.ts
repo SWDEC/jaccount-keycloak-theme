@@ -167,6 +167,25 @@ export async function removeGroupMember(
     return undefined;
 }
 
+export async function addGroup(
+    context: KeycloakContext<BaseEnvironment>,
+    kcContext: KcContext,
+    orgId: string,
+    groupName: string
+) {
+    const response = await request(`/organizations/${orgId}/groups`, context, kcContext, {
+        method: "PUT",
+        body: { groupName }
+    });
+
+    if (!response.ok) {
+        const { errors } = await response.json();
+        throw errors;
+    }
+
+    return undefined;
+}
+
 export async function inviteOrganizationMember(
     context: KeycloakContext<BaseEnvironment>,
     kcContext: KcContext,

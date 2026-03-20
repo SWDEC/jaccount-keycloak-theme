@@ -75,6 +75,7 @@ export const Members = ({ orgId }: MembersProps) => {
 
             await Promise.all(
                 selectedMembers.map(member => {
+                    console.log(member);
                     addError("Not yet implemented", null);
                 })
             );

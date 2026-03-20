@@ -21,6 +21,7 @@ import { AccessDeniedState } from "../AccessDeniedState";
 import { useState } from "react";
 import { GroupDetails } from "./GroupDetails";
 import GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
+import { AddGroupModal } from "./AddGroupModal";
 
 interface GroupsProps {
     orgId: string;
@@ -43,7 +44,7 @@ export const Groups = ({ orgId }: GroupsProps) => {
 
     return (
         <>
-            {openCreateGroup && <p>todo</p>}
+            {openCreateGroup && <AddGroupModal orgId={orgId} onClose={() => refresh()} />}
             <ErrorBoundaryProvider>
                 <ErrorBoundaryFallback fallback={AccessDeniedState}>
                     <PageSection>

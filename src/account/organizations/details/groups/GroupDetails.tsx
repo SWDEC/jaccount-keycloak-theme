@@ -11,14 +11,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { AddGroupMemberModal } from "./AddGroupMemberModal";
 import GroupRepresentation from "@keycloak/keycloak-admin-client/lib/defs/groupRepresentation";
-import {
-    Button,
-    EmptyState,
-    PageSection,
-    Tab,
-    Tabs,
-    ToolbarItem
-} from "@patternfly/react-core";
+import { Button, PageSection, Tab, Tabs, ToolbarItem } from "@patternfly/react-core";
 import { AccessDeniedState } from "../AccessDeniedState";
 import { getOrganizationGroupMembers } from "@/account/api/orgs-sidecar-methods";
 
@@ -31,9 +24,6 @@ export const GroupDetails = ({ orgId, group }: GroupDetailsProps) => {
     const { t } = useTranslation();
     const context = useEnvironment<BaseEnvironment>();
     const { kcContext } = getKcContext();
-
-    const [key, setKey] = useState(group.id!);
-    const refresh = () => setKey(group.id! + (key + 1));
 
     const [openAddGroupMember, setOpenAddGroupMember] = useState(false);
     const [activeTab, setActiveTab] = useState<string | number>("members");
@@ -73,7 +63,7 @@ export const GroupDetails = ({ orgId, group }: GroupDetailsProps) => {
                         <ErrorBoundaryProvider>
                             <ErrorBoundaryFallback fallback={AccessDeniedState}>
                                 <KeycloakDataTable
-                                    key={key}
+                                    key={group.id}
                                     loader={loader}
                                     ariaLabelKey="membersList"
                                     toolbarItem={
@@ -103,7 +93,7 @@ export const GroupDetails = ({ orgId, group }: GroupDetailsProps) => {
                                         {
                                             title: t("remove"),
                                             onRowClick: member => {
-                                                alert("todo");
+                                                alert("todo: remove " + member);
                                                 //setMembersToRemove([member]);
                                             }
                                         }
