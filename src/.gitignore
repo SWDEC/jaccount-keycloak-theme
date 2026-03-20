@@ -164,10 +164,7 @@
 /account/components/datalist/EmptyRow.tsx
 /account/components/page/Page.tsx
 
-# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.17 ===
-/components/langauges.tsx
-/components/theme-provider.tsx
-/components/theme-toggle.tsx
+# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.18 ===
 /login/KcContext.ts
 /login/KcPage.tsx
 /login/styleLevelCustomization.tsx
@@ -198,6 +195,9 @@
 /login/components/Template/Template.tsx
 /login/components/Template/useAuthChecker.ts
 /login/components/Template/useInitializeTemplate.ts
+/login/components/ui/Langauges.tsx
+/login/components/ui/ThemeProvider.tsx
+/login/components/ui/ThemeToggle.tsx
 /login/components/UserProfileFormFields/AddRemoveButtonsMultiValuedAttribute.tsx
 /login/components/UserProfileFormFields/DO_MAKE_USER_CONFIRM_PASSWORD.ts
 /login/components/UserProfileFormFields/FieldErrors.tsx

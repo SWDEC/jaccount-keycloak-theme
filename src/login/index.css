@@ -70,20 +70,6 @@
 }
 
 @layer utilities {
-    body.kcBodyClass {
-        @apply bg-none bg-no-repeat bg-center bg-fixed;
-        font-family: "Montserrat", sans-serif;
-    }
-
-    body.oauth {
-        @apply bg-none bg-no-repeat bg-center bg-fixed;
-    }
-
-    /* Change the text to right for RTL languages*/
-    html[dir="rtl"] .children {
-        @apply text-right;
-    }
-
     .required {
         @apply text-red-600;
     }
@@ -165,26 +151,23 @@
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus,
     input:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0 30px var(--background) inset !important;
         -webkit-text-fill-color: var(--foreground) !important;
-        box-shadow: 0 0 0 30px var(--background) inset !important;
-    }
 
-    /* For dark mode */
-    .dark input:-webkit-autofill,
-    .dark input:-webkit-autofill:hover,
-    .dark input:-webkit-autofill:focus,
-    .dark input:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0 30px var(--background) inset !important;
-        -webkit-text-fill-color: var(--foreground) !important;
-        box-shadow: 0 0 0 30px var(--background) inset !important;
+        /* Transition the background color so slowly it effectively never changes.
+           This preserves the transparent or semi-transparent background styles. */
+        transition: background-color 9999s ease-in-out 0s;
     }
 }
+
 @layer base {
     * {
         @apply border-border;
     }
     body {
         @apply bg-background text-foreground m-0 text-sm;
+    }
+    button:not(:disabled),
+    [role="button"]:not(:disabled) {
+        cursor: pointer;
     }
 }
