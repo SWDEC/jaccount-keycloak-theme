@@ -6,9 +6,5 @@
 # === @keycloakify/keycloak-account-ui v260502.0.2 ===
 /account/early-color-scheme.js
 
-# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.18 ===
+# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.19 ===
 /early-color-scheme.js
-/keycloak-theme/login/js/passkeysConditionalAuth.js
-/keycloak-theme/login/js/rfc4648.js
-/keycloak-theme/login/js/webauthnAuthenticate.js
-/keycloak-theme/login/js/webauthnRegister.js

@@ -164,7 +164,8 @@
 /account/components/datalist/EmptyRow.tsx
 /account/components/page/Page.tsx
 
-# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.18 ===
+# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.19 ===
+/components/ThemeProvider.tsx
 /login/KcContext.ts
 /login/KcPage.tsx
 /login/styleLevelCustomization.tsx
@@ -196,7 +197,6 @@
 /login/components/Template/useAuthChecker.ts
 /login/components/Template/useInitializeTemplate.ts
 /login/components/ui/Langauges.tsx
-/login/components/ui/ThemeProvider.tsx
 /login/components/ui/ThemeToggle.tsx
 /login/components/UserProfileFormFields/AddRemoveButtonsMultiValuedAttribute.tsx
 /login/components/UserProfileFormFields/DO_MAKE_USER_CONFIRM_PASSWORD.ts
@@ -330,7 +330,6 @@
 /login/pages/webauthn-authenticate/index.ts
 /login/pages/webauthn-authenticate/Page.stories.tsx
 /login/pages/webauthn-authenticate/Page.tsx
-/login/pages/webauthn-authenticate/useScript.tsx
 /login/pages/webauthn-error/index.ts
 /login/pages/webauthn-error/Page.stories.tsx
 /login/pages/webauthn-error/Page.tsx

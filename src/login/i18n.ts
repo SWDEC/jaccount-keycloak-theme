@@ -33,7 +33,8 @@ const { I18nProvider, useI18n } = i18nBuilder
             "organization.confirm-membership":
                 "You are about to join {0}. The admins of the Jugendarbeit / the KV will be able to view your data in order to see who is part of their group.",
             proceedWithAction: "Accept and proceed",
-            "identity-provider-login-last-used": "Last used"
+            "identity-provider-login-last-used": "Last used",
+            "attemptedUsernameLoggingInAs": "Logging in as",
         },
         de: {
             welcomeMessage:
@@ -59,7 +60,8 @@ const { I18nProvider, useI18n } = i18nBuilder
             "organization.confirm-membership":
                 "Du bist dabei, dem {0} beizutreten. Die jeweiligen Admins der Jugendarbeit / des KVs können dann deine Daten sehen, um einen Überblick zu haben, wer Teil der Gruppe ist.",
             proceedWithAction: "Akzeptieren und weiter",
-            "identity-provider-login-last-used": "Zuletzt verwendet"
+            "identity-provider-login-last-used": "Zuletzt verwendet",
+            "attemptedUsernameLoggingInAs": "Einloggen als",
         }
     })
     .build();
