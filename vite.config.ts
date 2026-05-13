@@ -24,7 +24,7 @@ export default defineConfig({
             },
             groupId: "de.swdec.jaccount",
             startKeycloakOptions: {
-                dockerImage: "quay.io/keycloak/keycloak:nightly" // nightly build because we need some functionality. Switch to stable once 26.6 is out.
+                dockerImage: "quay.io/keycloak/keycloak:nightly" // nightly build because we need some functionality. Switch to stable once 26.7 is out.
             }
         })
     ],
