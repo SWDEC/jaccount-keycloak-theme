@@ -8,6 +8,7 @@
 # account/assets/logo.svg
 # account/organizations/Organizations.tsx
 # login/assets/img/auth-logo.svg
+# login/assets/img/default-logo.svg
 # === Owned files end =====
 
 # === @keycloakify/keycloak-ui-shared v260502.0.0 ===
@@ -192,7 +193,6 @@
 /login/shared/getColorScheme.ts
 /login/shared/redirectUrlOrigin.ts
 /login/shared/resolveAssetUrl.ts
-/login/assets/img/default-logo.svg
 /login/assets/img/placeholder.svg
 /login/assets/img/shape.svg
 /login/components/Template/Defaults.ts

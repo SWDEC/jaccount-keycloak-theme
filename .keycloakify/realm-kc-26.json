@@ -3221,7 +3221,7 @@
         "policies": []
     },
     "adminPermissionsEnabled": false,
-    "displayName": "SWD-EC",
+    "displayName": "SWD-EC jAccount",
     "displayNameHtml": "",
     "verifiableCredentialsEnabled": false,
     "webAuthnPolicyPasswordlessPasskeysEnabled": true,
