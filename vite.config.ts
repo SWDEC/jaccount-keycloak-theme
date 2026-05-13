@@ -12,7 +12,11 @@ export default defineConfig({
         keycloakify({
             accountThemeImplementation: "Single-Page",
             environmentVariables: [
-                { name: "ORGS_SIDECAR_SERVER_URL", default: "http://localhost:3000" }
+                // Account console
+                { name: "ORGS_SIDECAR_SERVER_URL", default: "http://localhost:3000" },
+                // Login
+                { name: "SHADCN_THEME_LAYOUT", default: "centered-card" },
+                { name: "SHADCN_THEME_APP_NAME", default: "jAccount" },
             ],
             keycloakVersionTargets: {
                 "22-to-25": false,
