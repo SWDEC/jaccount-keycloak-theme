@@ -13,14 +13,14 @@ import { Page } from "../../components/page/Page";
 import { Environment } from "../../environment";
 import { usePromise } from "../../utils/usePromise";
 import { Card } from "@/components/ui/card";
-import { Button, ButtonVariant, Hint, HintBody, HintFooter, HintTitle } from "@patternfly/react-core";
+import { Button, Hint, HintBody, HintFooter, HintTitle } from "@patternfly/react-core";
 
 interface OrganizationOverviewProps {
     onSelectOrg: (orgId: string) => void;
 }
 
 export const OrganizationOverview: React.FC<OrganizationOverviewProps> = ({
-    onSelectOrg
+    onSelectOrg: _onSelectOrg
 }) => {
     const { t } = useTranslation();
     const context = useEnvironment<Environment>();
@@ -45,7 +45,7 @@ export const OrganizationOverview: React.FC<OrganizationOverviewProps> = ({
                 </Hint>
                 <Card>
                     <OrganizationTable
-                        link={({ organization, children }) => (children)}
+                        link={({ organization: _organization, children }) => (children)}
                         /*link={({ organization, children }) => (
                             <Button
                                 variant={ButtonVariant.link}
