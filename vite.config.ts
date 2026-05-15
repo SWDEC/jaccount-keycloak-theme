@@ -17,6 +17,15 @@ export default defineConfig({
                 // Login
                 { name: "SHADCN_THEME_LAYOUT", default: "centered-card" },
                 { name: "SHADCN_THEME_APP_NAME", default: "jAccount" },
+                // The following variables are for fixing compile errors in @oussemasahbeni/keycloakify-login-shadcn:250004.0.21 only
+                { name: "SHADCN_THEME_BASE", default: "neutral" },
+                { name: "SHADCN_THEME_PRESET", default: "lime" },
+                { name: "SHADCN_THEME_SIDE_IMAGE_URL", default: "" },
+                { name: "SHADCN_THEME_FONT", default: "montserrat" },
+                { name: "SHADCN_THEME_RADIUS", default: "normal" },
+                { name: "SHADCN_THEME_PLACEHOLDER", default: "true" },
+                { name: "SHADCN_THEME_LOGO_WHITE_URL", default: "" }, // we override the logo in the assets folder directly
+                { name: "SHADCN_THEME_LOGO_DARK_URL", default: "" }, // we override the logo in the assets folder directly
             ],
             keycloakVersionTargets: {
                 "22-to-25": false,

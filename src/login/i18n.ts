@@ -35,6 +35,13 @@ const { I18nProvider, useI18n } = i18nBuilder
             proceedWithAction: "Accept and proceed",
             "identity-provider-login-last-used": "Last used",
             "attemptedUsernameLoggingInAs": "Logging in as",
+            // The following translations are for fixing compile errors in @oussemasahbeni/keycloakify-login-shadcn:250004.0.21 only
+            "passwordPlaceholder": "Enter password",
+            "emailPlaceholder": "Enter email address",
+            "usernamePlaceholder": "Enter username",
+            "usernameOrEmailPlaceholder": "Enter username or email address",
+            "confirmPasswordPlaceholder": "Enter the same password again",
+            "newPasswordPlaceholder": "Enter your new password",
         },
         de: {
             welcomeMessage:
@@ -62,6 +69,13 @@ const { I18nProvider, useI18n } = i18nBuilder
             proceedWithAction: "Akzeptieren und weiter",
             "identity-provider-login-last-used": "Zuletzt verwendet",
             "attemptedUsernameLoggingInAs": "Einloggen als",
+            // The following translations are for fixing compile errors in @oussemasahbeni/keycloakify-login-shadcn:250004.0.21 only
+            "passwordPlaceholder": "Passwort eingeben",
+            "emailPlaceholder": "E-Mail-Adresse eingeben",
+            "usernamePlaceholder": "Nutzername eingeben",
+            "usernameOrEmailPlaceholder": "Nutzername oder E-Mail-Adresse eingeben",
+            "confirmPasswordPlaceholder": "Selbes Passwort erneut eingeben",
+            "newPasswordPlaceholder": "Gib dein neues Passwort ein",
         }
     })
     .build();
