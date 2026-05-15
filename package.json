@@ -1,7 +1,7 @@
 {
     "name": "jaccount-keycloak-theme",
-    "version": "0.0.5",
-    "description": "Starter for Keycloakify 11",
+    "version": "0.0.6",
+    "description": "Keycloak theme (Login, Account, Email) for SWDEC",
     "packageManager": "yarn@4.9.1",
     "repository": {
         "type": "git",
