@@ -13,7 +13,7 @@ import { Page } from "../../components/page/Page";
 import { Environment } from "../../environment";
 import { usePromise } from "../../utils/usePromise";
 import { Card } from "@/components/ui/card";
-import { Button, ButtonVariant } from "@patternfly/react-core";
+import { Button, ButtonVariant, Hint, HintBody, HintFooter, HintTitle } from "@patternfly/react-core";
 
 interface OrganizationOverviewProps {
     onSelectOrg: (orgId: string) => void;
@@ -36,9 +36,17 @@ export const OrganizationOverview: React.FC<OrganizationOverviewProps> = ({
     return (
         <Page title={t("organizations")} description={t("organizationDescription")}>
             <ErrorBoundaryProvider>
+                <Hint>
+                    <HintTitle>Meine Jugendarbeit verwalten</HintTitle>
+                    <HintBody>Wenn du Admin-Rechte hast, kannst du die Leute deiner Jugendarbeit in der Admin-Konsole verwalten</HintBody>
+                    <HintFooter>
+                        <Button>Zur Admin-Konsole</Button>
+                    </HintFooter>
+                </Hint>
                 <Card>
                     <OrganizationTable
-                        link={({ organization, children }) => (
+                        link={({ organization, children }) => (children)}
+                        /*link={({ organization, children }) => (
                             <Button
                                 variant={ButtonVariant.link}
                                 onClick={() => {
@@ -47,7 +55,7 @@ export const OrganizationOverview: React.FC<OrganizationOverviewProps> = ({
                             >
                                 {children}
                             </Button>
-                        )}
+                        )}*/
                         loader={userOrgs}
                     >
                         <ListEmptyState
