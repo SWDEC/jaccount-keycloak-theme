@@ -9,6 +9,7 @@
 # account/organizations/Organizations.tsx
 # login/assets/img/auth-logo.svg
 # login/assets/img/default-logo.svg
+# login/components/Template/layouts/ImageAsideLayout.tsx
 # === Owned files end =====
 
 # === @keycloakify/keycloak-ui-shared v260502.0.0 ===
@@ -344,7 +345,6 @@
 /login/pages/webauthn-register/Page.tsx
 /login/pages/webauthn-register/useLogic.ts
 /login/components/Template/layouts/CenteredCardLayout.tsx
-/login/components/Template/layouts/ImageAsideLayout.tsx
 /login/components/Template/layouts/TwoColumnLayout.tsx
 /login/components/Template/theme/Themes.ts
 /login/components/Template/theme/ThemeTypes.ts
