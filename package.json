@@ -1,6 +1,6 @@
 {
     "name": "jaccount-keycloak-theme",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "Keycloak theme (Login, Account, Email) for SWDEC",
     "packageManager": "yarn@4.9.1",
     "repository": {

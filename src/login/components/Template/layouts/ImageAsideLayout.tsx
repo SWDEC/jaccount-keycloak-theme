@@ -19,7 +19,7 @@ export function ImageAsideLayout(props: { content: ReactNode; imageUrl?: string 
     const { content } = props;
 
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
+        <div className="flex min-h-svh flex-col items-center justify-center px-2 py-12 md:p-10">
             <TemplateTopBar />
             <div className="p-0 w-full max-w-sm md:max-w-4xl flex flex-col gap-6">
                 <div className="grid md:grid-cols-2 gap-6">
