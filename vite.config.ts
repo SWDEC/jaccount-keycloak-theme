@@ -16,7 +16,7 @@ export default defineConfig({
                 { name: "ORGS_SIDECAR_SERVER_URL", default: "http://localhost:3000" },
                 // Login
                 { name: "SHADCN_THEME_LAYOUT", default: "image-aside" },
-                { name: "SHADCN_THEME_APP_NAME", default: "jAccount" },
+                { name: "SHADCN_THEME_APP_NAME", default: "SWD-EC ID" },
                 // The following variables are for fixing compile errors in @oussemasahbeni/keycloakify-login-shadcn:250004.0.21 only
                 { name: "SHADCN_THEME_BASE", default: "neutral" },
                 { name: "SHADCN_THEME_PRESET", default: "lime" },
@@ -31,7 +31,7 @@ export default defineConfig({
                 "22-to-25": false,
                 "all-other-versions": true
             },
-            groupId: "de.swdec.jaccount",
+            groupId: "de.swdec.id",
             startKeycloakOptions: {
                 dockerImage: "quay.io/keycloak/keycloak:nightly" // nightly build because we need some functionality. Switch to stable once 26.7 is out.
             }

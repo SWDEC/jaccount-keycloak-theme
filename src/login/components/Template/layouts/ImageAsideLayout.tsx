@@ -45,7 +45,7 @@ export function ImageAsideLayout(props: { content: ReactNode; imageUrl?: string 
 
                 <div className="grid md:grid-cols-2 gap-6">
                     <p className="text-sm text-center text-muted-foreground [&>a]:underline [&>a]:underline-offset-4 [&>a:hover]:text-foreground">
-                        jAccount – powered by Jesus
+                        SWD-EC ID – powered by Jesus
                         <br />
                         <a href="https://swdec.de/impressum" target="_blank">Impressum</a> •{" "}
                         <a href="https://swdec.de/datenschutz" target="_blank">Datenschutz</a> •{" "}

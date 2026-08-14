@@ -165,7 +165,7 @@
 /account/components/datalist/EmptyRow.tsx
 /account/components/page/Page.tsx
 
-# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.21 ===
+# === @oussemasahbeni/keycloakify-login-shadcn v250004.0.24 ===
 /components/ThemeProvider.tsx
 /login/KcContext.ts
 /login/KcPage.tsx

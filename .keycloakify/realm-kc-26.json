@@ -536,7 +536,7 @@
     ],
     "localizationTexts": {
         "de": {
-            "emptyUserOrganizationsInstructions": "Bitte den Verwalter deiner Jugendarbeit, dich hinzuzufügen. Dieser braucht dafür die E-Mail-Adresse, auf die du diesen jAccount erstellt hast.",
+            "emptyUserOrganizationsInstructions": "Bitte den Verwalter deiner Jugendarbeit, dich hinzuzufügen. Dieser braucht dafür die E-Mail-Adresse, auf die du diese SWD-EC ID erstellt hast.",
             "inviteMember": "Jemanden einladen",
             "inviteMemberDescription": "Lade eine Person zu dieser Jugendarbeit ein. Wenn die Person schon ein Konto hat, kann sie dieses verwenden, um beizutreten. Andernfalls wird sie in einer E-Mail aufgefordert, ein Konto zu erstellen.",
             "inviteMemberOptionalData": "Folgende Daten sind optional und können auch von der Person selbst ausgefüllt werden",
@@ -571,7 +571,7 @@
         "zh-TW": {},
         "pt-BR": {},
         "en": {
-            "emptyUserOrganizationsInstructions": "Ask the manager of your Jugendarbeit/KV to invite you. In order to do so, they need the email address of your jAccount.",
+            "emptyUserOrganizationsInstructions": "Ask the manager of your Jugendarbeit/KV to invite you. In order to do so, they need the email address of your SWD-EC ID.",
             "organizations": "Jugendarbeiten & KVs",
             "profile.attributes.membershipNumber": "Membership Number"
         },
@@ -598,7 +598,7 @@
     "webAuthnPolicyAvoidSameAuthenticatorRegister": false,
     "webAuthnPolicyAcceptableAaguids": [],
     "webAuthnPolicyExtraOrigins": [],
-    "webAuthnPolicyPasswordlessRpEntityName": "jaccount",
+    "webAuthnPolicyPasswordlessRpEntityName": "swdec-id",
     "webAuthnPolicyPasswordlessSignatureAlgorithms": ["ES256"],
     "webAuthnPolicyPasswordlessRpId": "",
     "webAuthnPolicyPasswordlessAttestationConveyancePreference": "not specified",
@@ -889,8 +889,8 @@
         },
         {
             "id": "057c597f-faef-4abc-88dc-4fbc9501170c",
-            "clientId": "jaccount-sidecar-service-admin",
-            "name": "jAccount Sidecar Admin Service User",
+            "clientId": "swdec-id-sidecar-service-admin",
+            "name": "SWD-EC ID Sidecar Admin Service User",
             "surrogateAuthRequired": false,
             "enabled": true,
             "alwaysDisplayInConsole": false,
@@ -1608,7 +1608,7 @@
         {
             "id": "295d74fe-5304-4ac0-8bdd-741b599a6d6a",
             "name": "custom-audience",
-            "description": "Add custom aud claims. For example, for account client to request a token that is also valid at jaccount-org-sidecar.",
+            "description": "Add custom aud claims. For example, for account client to request a token that is also valid at swdec-id-org-sidecar.",
             "protocol": "openid-connect",
             "attributes": {
                 "consent.screen.text": "",
@@ -1621,13 +1621,13 @@
                 {
                     "consentRequired": false,
                     "id": "9558cd9c-d3a3-4699-b8e4-c44b28b98637",
-                    "name": "jaccount-org-sidecar-as-audience",
+                    "name": "swdec-id-org-sidecar-as-audience",
                     "protocol": "openid-connect",
                     "protocolMapper": "oidc-audience-mapper",
                     "config": {
                         "access.token.claim": "true",
                         "id.token.claim": "false",
-                        "included.custom.audience": "jaccount-org-sidecar",
+                        "included.custom.audience": "swdec-id-org-sidecar",
                         "introspection.token.claim": "true",
                         "lightweight.claim": "false",
                         "userinfo.token.claim": "false"
@@ -1954,7 +1954,7 @@
         "connectionTimeout": "10000",
         "debug": "false",
         "envelopeFrom": "",
-        "from": "noreply@jaccount.swdec.de",
+        "from": "noreply@id.swdec.de",
         "fromDisplayName": "",
         "host": "sandbox.smtp.mailtrap.io",
         "password": "2218fa8d435fd5",
@@ -1967,8 +1967,8 @@
         "user": "0fe9d3e05c5f68",
         "writeTimeout": "10000"
     },
-    "loginTheme": "jaccount-keycloak-theme",
-    "accountTheme": "jaccount-keycloak-theme",
+    "loginTheme": "swdec-id-keycloak-theme",
+    "accountTheme": "swdec-id-keycloak-theme",
     "adminTheme": "",
     "emailTheme": "",
     "eventsEnabled": false,
@@ -3221,7 +3221,7 @@
         "policies": []
     },
     "adminPermissionsEnabled": false,
-    "displayName": "SWD-EC jAccount",
+    "displayName": "SWD-EC ID",
     "displayNameHtml": "",
     "verifiableCredentialsEnabled": false,
     "webAuthnPolicyPasswordlessPasskeysEnabled": true,

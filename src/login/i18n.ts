@@ -14,7 +14,7 @@ const { I18nProvider, useI18n } = i18nBuilder
     .withCustomTranslations({
         en: {
             welcomeMessage:
-                "Welcome to your jAccount. One account for everything SWD-EC.",
+                "Welcome to your SWD-EC ID. One account for everything SWD-EC.",
             loginAccountTitle: "Login to your account",
             registerTitle: "Register a new account",
             email: "Email",
@@ -24,7 +24,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             "organization.selectTitle": "Choose Your Organization",
             "organization.select": "Choose Your Organization",
             "organization.pickPlaceholder": "Pick an organization to continue",
-            doLogIn: "Sign in with jAccount",
+            doLogIn: "Sign in with SWD-EC ID",
             emailInstruction:
                 "Enter your email and click on send. We will send you a mail with the next step.",
             "organization.member.register.title":
@@ -45,9 +45,9 @@ const { I18nProvider, useI18n } = i18nBuilder
         },
         de: {
             welcomeMessage:
-                "Willkommen bei deinem jAccount. Ein Account für alles im SWD-EC.",
-            loginAccountTitle: "Mit deinem jAccount einloggen",
-            registerTitle: "Einen jAccount erstellen",
+                "Willkommen bei deiner SWD-EC ID. Ein Account für alles im SWD-EC.",
+            loginAccountTitle: "Mit SWD-EC ID einloggen",
+            registerTitle: "Eine SWD-EC ID erstellen",
             email: "E-Mail",
             enterCredentials:
                 "Entrez vos informations d'identification ci-dessous pour vous connecter",
@@ -58,7 +58,7 @@ const { I18nProvider, useI18n } = i18nBuilder
                 "Wähle die Jugendarbeit, über die du dich einloggen willst",
             "organization.pickPlaceholder":
                 "Wähle die Jugendarbeit, über die du dich einloggen willst",
-            doLogIn: "Mit jAccount anmelden",
+            doLogIn: "Mit SWD-EC ID anmelden",
             emailInstruction:
                 "Gib deine E-Mail-Adresse ein und klicke auf Absenden. Dann schicken wir dir eine E-Mail mit dem nächsten Schritt.",
             "organization.member.register.title":
